@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name         = "ClimbBar"
-  s.version      = "1.0.2"
-  s.summary      = "iOS library that can extend a View that has scrollable elements such as UITableView and UIWebView."
+  s.version      = "1.0.3"
+  s.summary      = "You can move another object synchronously with the scroll value."
   s.description  = <<-DESC
                     iOS library that can extend a View that has scrollable elements such as UITableView and UIWebView.
                    DESC
