@@ -36,6 +36,28 @@ $ git clone git@github.com:keisukeYamagishi/Direction.git
 $ git clone https://github.com/keisukeYamagishi/Direction.git
 ```
 
+## Use it 
+
+In the case of the image below, only top is located from Superview.
+
+<img src="https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/climbbar_tutorial.png" width="50%" height="50%">
+
+You can see the example apps
+
+UITableView's frame
+x: 0,
+y: 0,
+width: self.view.frame.size.width,
+height: self.view.frame.size.height
+
+It has become.
+
+On top of that is the NavigationBar.
+
+Set the cover range to Configuration.
+
+It moves in synchronization with the scroll value.
+
 ## Sample code
 
 ```Swift
