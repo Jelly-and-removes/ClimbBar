@@ -21,7 +21,7 @@ class WebViewController: UIViewController {
         self.title = "WebViewController"
         
         webView.load(URLRequest(url: URL(string: "https://github.com")!))
-        
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
         let conf = Configuration(range: UIApplication.shared.statusBarFrame.height..<UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.size.height)!)
         
         self.climbBar = ClimbBar(configurations: conf,

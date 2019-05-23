@@ -35,6 +35,10 @@ class ClimbReducer {
         return (self.value + self.configuration.climbRange) - origin.y
     }
     
+    var distance: CGFloat {
+        return self.height - self.configuration.compact
+    }
+    
     var alpha: CGFloat {
         return CGFloat((self.height - self.configuration.compact) / self.configuration.climbRange)
     }

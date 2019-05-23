@@ -38,25 +38,35 @@ $ git clone https://github.com/keisukeYamagishi/Direction.git
 
 ## Use it 
 
-In the case of the image below, only top is located from Superview.
 
-<img src="https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/climbbar_tutorial.png" width="50%" height="50%">
 
-You can see the example apps
+### Custom bar
 
-UITableView's frame
-x: 0,
-y: 0,
-width: self.view.frame.size.width,
-height: self.view.frame.size.height
+ClimbBar uses contentInset to move the scroll elements, so
 
-It has become.
+As in the picture below
 
-On top of that is the NavigationBar.
+#### Storyboard
 
-Set the cover range to Configuration.
+![](https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/contentInset.png)
 
-It moves in synchronization with the scroll value.
+####  Code
+
+```
+self.scrollable.contentInsetAdjustmentBehavior = .never
+```
+
+### Apple offical site
+UIScrollView.ContentInsetAdjustmentBehavior
+Constants indicating how safe area insets are added to the adjusted content inset.
+
+Please use it as Never.
+
+[UIScrollView.ContentInsetAdjustmentBehavior (Apple)](https://developer.apple.com/documentation/uikit/uiscrollview/contentinsetadjustmentbehavior)
+
+***BUT Look at the following***
+
+If you use UINavigationController, it will work without using it.
 
 ## Sample code
 
