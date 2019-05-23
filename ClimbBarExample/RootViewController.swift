@@ -12,7 +12,7 @@ class RootViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let items: [String] = ["TableView", "WebView"]
+    let items: [String] = ["TableView", "WebView", "Custom Bar View"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +35,11 @@ extension RootViewController: UITableViewDelegate {
             let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController")
             
             self.navigationController?.pushViewController(firstViewController!, animated: true)
-        }
-        
+        }else if indexPath.row == 2 {
+            let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "ExpndedViewController")
+            
+            self.present(firstViewController!, animated: true, completion: nil)
+        }        
     }
 }
 
