@@ -86,18 +86,17 @@ public class ClimbBar: NSObject {
         
         let climb = self.climbReducer()
         
-        if contentOffset.y <= -self.configurations.normal
-            || climb.distance >= self.configurations.climbRange {
+        if contentOffset.y <= -self.configurations.normal {
             UIView.animate(withDuration: 0.35,
                            delay: 0.0,
                            options: .curveEaseIn,
-                           animations: {}) { flg in
-                            guard !self.isEndDrag == false else { return }
-                            self.scrollable.setContentOffset(self.defaultContentOffset, animated: true)
-                            self.scrollable.contentInset = self.defaultInset
+                           animations: {}) { [weak self] _ in
+                            guard !self!.isEndDrag == false else { return }
+                            self?.scrollable.setContentOffset(self!.defaultContentOffset, animated: true)
+                            self?.scrollable.contentInset = self!.defaultInset
                             
-                            self.stateReducer(State(originY: climb.value, alpha: climb.alpha, distance: climb.distance))
-                            self.scrollable.contentInset.top = climb.height
+                            self?.stateReducer(State(originY: climb.value, alpha: climb.alpha, distance: climb.distance))
+                            self?.scrollable.contentInset.top = climb.height
             }
         }
     }
