@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8DD229170EC008EB5DF /* Configuration.swift */; };
-		C72CD8E9229192F8008EB5DF /* ClimbReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* ClimbReducer.swift */; };
+		C72CD8E9229192F8008EB5DF /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* Calculate.swift */; };
 		C74EF99E2294E8C600706FDA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF99D2294E8C600706FDA /* RootViewController.swift */; };
 		C74EF9A02294EB3A00706FDA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF99F2294EB3A00706FDA /* WebViewController.swift */; };
 		C74EF9A32294ED0400706FDA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EF9A22294ED0400706FDA /* WebKit.framework */; };
@@ -50,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		C72CD8DD229170EC008EB5DF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		C72CD8E8229192F8008EB5DF /* ClimbReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbReducer.swift; sourceTree = "<group>"; };
+		C72CD8E8229192F8008EB5DF /* Calculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
 		C74EF99D2294E8C600706FDA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C74EF99F2294EB3A00706FDA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C74EF9A22294ED0400706FDA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -138,7 +138,7 @@
 				C79EBFC22282A92A00B2E0CB /* ClimbBar.swift */,
 				C72CD8DD229170EC008EB5DF /* Configuration.swift */,
 				C79EBFB82282A63700B2E0CB /* Info.plist */,
-				C72CD8E8229192F8008EB5DF /* ClimbReducer.swift */,
+				C72CD8E8229192F8008EB5DF /* Calculate.swift */,
 			);
 			path = ClimbBar;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			files = (
 				C79EBFC32282A92A00B2E0CB /* ClimbBar.swift in Sources */,
 				C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */,
-				C72CD8E9229192F8008EB5DF /* ClimbReducer.swift in Sources */,
+				C72CD8E9229192F8008EB5DF /* Calculate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
