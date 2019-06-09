@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ClimbReducer {
+class Calculate {
     
     var configuration: Configuration
     var begin: CGFloat
@@ -26,13 +26,13 @@ class ClimbReducer {
         self.origin = origin
     }
     
-    var value: CGFloat {
+    var originY: CGFloat {
         let diffVal = self.configuration.currentStatus + begin - offset.y
         return min(max(diffVal, self.configuration.lower), self.configuration.upper)
     }
     
     var height: CGFloat {
-        return (self.value + self.configuration.climbRange) - origin.y
+        return (self.originY + self.configuration.climbRange) - origin.y
     }
     
     var distance: CGFloat {

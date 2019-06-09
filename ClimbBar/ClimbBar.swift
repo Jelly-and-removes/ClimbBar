@@ -13,16 +13,9 @@ public class ClimbBar: NSObject {
     var configurations: Configuration!
     var scrollable: UIScrollView!
     var stateReducer: ((State) -> Void)!
-    
     var beginDrag: CGFloat = 0
     var isEndDrag: Bool  = false
     var previousState: CGFloat!
-    
-    var direction: direction?
-    enum direction {
-        case up
-        case down
-    }
 
     public var defaultContentOffset: CGPoint = .zero
     public var defaultInset:UIEdgeInsets = .zero
@@ -52,7 +45,7 @@ public class ClimbBar: NSObject {
         self.stateReducer = state
         
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
-        
+
         self.setConfiguration(conf: configurations)
     }
     
@@ -74,30 +67,20 @@ public class ClimbBar: NSObject {
         scrollable.contentInset = contentInset
         scrollable.contentOffset = contentOffset
     }
-    
-    private func climbReducer() -> ClimbReducer {
-        return ClimbReducer(conf: self.configurations,
-                                  begin: beginDrag,
-                                  offset: self.scrollable.contentOffset,
-                                  origin: self.scrollable.frame.origin)
-    }
-    
+
     func adjustOffset(contentOffset: CGPoint) {
         
-        let climb = self.climbReducer()
+        let calculate = Calculate(conf: self.configurations,
+                                 begin: beginDrag,
+                                 offset: self.scrollable.contentOffset,
+                                 origin: self.scrollable.frame.origin)
         
         if contentOffset.y <= -self.configurations.normal {
-            UIView.animate(withDuration: 0.35,
-                           delay: 0.0,
-                           options: .curveEaseIn,
-                           animations: {}) { [weak self] _ in
-                            guard !self!.isEndDrag == false else { return }
-                            self?.scrollable.setContentOffset(self!.defaultContentOffset, animated: true)
-                            self?.scrollable.contentInset = self!.defaultInset
-                            
-                            self?.stateReducer(State(originY: climb.value, alpha: climb.alpha, distance: climb.distance))
-                            self?.scrollable.contentInset.top = climb.height
-            }
+            guard !self.isEndDrag == false else { return }
+            self.scrollable.setContentOffset(self.defaultContentOffset, animated: true)
+            self.scrollable.contentInset = self.defaultInset
+            self.stateReducer(State(originY: calculate.originY, alpha: calculate.alpha, distance: calculate.distance))
+            self.scrollable.contentInset.top = calculate.height
         }
     }
     
@@ -108,26 +91,22 @@ public class ClimbBar: NSObject {
             self.isEndDrag = false
             self.beginDrag = self.scrollable.contentOffset.y
             self.configurations.currentStatus = previousState
-            
             break
         case .changed:
             
             if !self.isEndDrag {
                 
-                if self.beginDrag > self.scrollable.contentOffset.y {
-                    self.direction = .down
-                }else{
-                    self.direction = .up
-                }
+                let calculate = Calculate(conf: self.configurations,
+                                           begin: beginDrag,
+                                           offset: self.scrollable.contentOffset,
+                                           origin: self.scrollable.frame.origin)
                 
-                let reducer = self.climbReducer()
-                stateReducer(State(originY: reducer.value,
-                                   alpha: reducer.alpha,
-                                   distance: reducer.distance))
-
-                self.scrollable.contentInset.top = reducer.height
                 
-                self.previousState = reducer.value
+                stateReducer(State(originY: calculate.originY,
+                                   alpha: calculate.alpha,
+                                   distance: calculate.distance))
+                
+                self.previousState = calculate.originY
             }
             
             break
