@@ -24,13 +24,16 @@ public class ClimbBar: NSObject {
         public var originY: CGFloat
         public var alpha: CGFloat
         public var distance: CGFloat
+        public var height: CGFloat
         
         init(originY: CGFloat,
              alpha: CGFloat,
-             distance: CGFloat) {
+             distance: CGFloat,
+             height: CGFloat) {
             self.originY = originY
             self.alpha = alpha
             self.distance = distance
+            self.height = height
         }
     }
     
@@ -79,7 +82,10 @@ public class ClimbBar: NSObject {
             guard !self.isEndDrag == false else { return }
             self.scrollable.setContentOffset(self.defaultContentOffset, animated: true)
             self.scrollable.contentInset = self.defaultInset
-            self.stateReducer(State(originY: calculate.originY, alpha: calculate.alpha, distance: calculate.distance))
+            self.stateReducer(State(originY: calculate.originY,
+                                    alpha: calculate.alpha,
+                                    distance: calculate.distance,
+                                    height:calculate.height))
             self.scrollable.contentInset.top = calculate.height
         }
     }
@@ -104,7 +110,8 @@ public class ClimbBar: NSObject {
                 
                 stateReducer(State(originY: calculate.originY,
                                    alpha: calculate.alpha,
-                                   distance: calculate.distance))
+                                   distance: calculate.distance,
+                                   height: calculate.height))
                 
                 self.previousState = calculate.originY
             }
