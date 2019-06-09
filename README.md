@@ -28,12 +28,12 @@ pod 'ClimbBar'
 ***Via SSH***: For those who plan on regularly making direct commits, cloning over SSH may provide a better experience (which requires uploading SSH keys to GitHub):
 
 ```
-$ git clone git@github.com:keisukeYamagishi/Direction.git
+$ git clone git@github.com:keisukeYamagishi/ClimbBar.git
 ```
 ***Via https***: For those checking out sources as read-only, HTTPS works best:
 
 ```
-$ git clone https://github.com/keisukeYamagishi/Direction.git
+$ git clone https://github.com/keisukeYamagishi/ClimbBar.git
 ```
 
 ## Use it 
