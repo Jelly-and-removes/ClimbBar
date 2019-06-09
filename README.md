@@ -15,7 +15,7 @@ As you can see in the example apps, the scroll bar hides the navigation bar.
 
 |travis| status |
 |:----|:------|
-|result|![](https://travis-ci.org/keisukeYamagishi/ClimbBar.svg?branch=master)|
+|result|[![](https://travis-ci.org/keisukeYamagishi/ClimbBar.svg?branch=master)](https://travis-ci.org/keisukeYamagishi/ClimbBar)|
 
 ## Cocoapods
 
