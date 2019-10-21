@@ -70,25 +70,6 @@ public class ClimbBar: NSObject {
         scrollable.contentInset = contentInset
         scrollable.contentOffset = contentOffset
     }
-
-    func adjustOffset(contentOffset: CGPoint) {
-        
-        let calculate = Calculate(conf: self.configurations,
-                                 begin: beginDrag,
-                                 offset: self.scrollable.contentOffset,
-                                 origin: self.scrollable.frame.origin)
-        
-        if contentOffset.y <= -self.configurations.normal {
-            guard !self.isEndDrag == false else { return }
-            self.scrollable.setContentOffset(self.defaultContentOffset, animated: true)
-            self.scrollable.contentInset = self.defaultInset
-            self.stateReducer(State(originY: calculate.originY,
-                                    alpha: calculate.alpha,
-                                    distance: calculate.distance,
-                                    height:calculate.height))
-            self.scrollable.contentInset.top = calculate.height
-        }
-    }
     
     @objc private func handleGesture (_ state: UIGestureRecognizer) {
         
@@ -119,7 +100,6 @@ public class ClimbBar: NSObject {
             break
         case .ended:
             self.isEndDrag = true
-            self.adjustOffset(contentOffset: scrollable.contentOffset)
             break
         default: break
             
