@@ -12,7 +12,7 @@ class RootViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let items: [String] = ["TableView", "WebView"]
+    let items: [String] = ["TableView", "WebView","CollectionView"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,14 +28,17 @@ extension RootViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             
             let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
-            
+            firstViewController?.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(firstViewController!, animated: true)
             
         } else if indexPath.row == 1 {
             let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController")
             
             self.navigationController?.pushViewController(firstViewController!, animated: true)
-        }    
+        }else if indexPath.row == 2 {
+            let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CollectionViewController")
+            self.navigationController?.pushViewController(secondViewController!, animated: true)
+        }
     }
 }
 
