@@ -4,7 +4,7 @@
 
 [![](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/keisukeYamagishi/Direction/blob/master/LICENSE)
 [![](https://img.shields.io/badge/twitter-brew__0__O-blue.svg)](https://twitter.com/brew_0_O)
-
+[![](https://img.shields.io/badge/lang-Swift5-FF69B4)](https://swift.org/blog/swift-5-released/)
 </p>
 
 # Overview
