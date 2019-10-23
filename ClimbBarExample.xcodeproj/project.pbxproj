@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C72665DE235F27390072FDDB /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72665DD235F27390072FDDB /* CollectionViewController.swift */; };
+		C72665E0235F2A9D0072FDDB /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72665DF235F2A9D0072FDDB /* CollectionCell.swift */; };
 		C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8DD229170EC008EB5DF /* Configuration.swift */; };
 		C72CD8E9229192F8008EB5DF /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* Calculate.swift */; };
 		C74EF99E2294E8C600706FDA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF99D2294E8C600706FDA /* RootViewController.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C72665DD235F27390072FDDB /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		C72665DF235F2A9D0072FDDB /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		C72CD8DD229170EC008EB5DF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		C72CD8E8229192F8008EB5DF /* Calculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
 		C74EF99D2294E8C600706FDA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				C74EF99D2294E8C600706FDA /* RootViewController.swift */,
 				C74EF99F2294EB3A00706FDA /* WebViewController.swift */,
 				C74EF9A42294F50900706FDA /* Extension.swift */,
+				C72665DD235F27390072FDDB /* CollectionViewController.swift */,
+				C72665DF235F2A9D0072FDDB /* CollectionCell.swift */,
 			);
 			path = ClimbBarExample;
 			sourceTree = "<group>";
@@ -257,9 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72665DE235F27390072FDDB /* CollectionViewController.swift in Sources */,
 				C74EF9A52294F50900706FDA /* Extension.swift in Sources */,
 				C79EBFA12282A60100B2E0CB /* ViewController.swift in Sources */,
 				C79EBF9F2282A60100B2E0CB /* AppDelegate.swift in Sources */,
+				C72665E0235F2A9D0072FDDB /* CollectionCell.swift in Sources */,
 				C74EF99E2294E8C600706FDA /* RootViewController.swift in Sources */,
 				C74EF9A02294EB3A00706FDA /* WebViewController.swift in Sources */,
 			);
