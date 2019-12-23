@@ -8,16 +8,17 @@
 
 import UIKit
 
-class RootViewController: UIViewController {
+final class RootViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let items: [String] = ["TableView", "WebView","CollectionView"]
+    private let items: [String] = ["TableView", "WebView", "CollectionView"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
 }
 
@@ -26,14 +27,11 @@ extension RootViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 0 {
-            
             let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
             firstViewController?.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(firstViewController!, animated: true)
-            
         } else if indexPath.row == 1 {
             let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController")
-            
             self.navigationController?.pushViewController(firstViewController!, animated: true)
         }else if indexPath.row == 2 {
             let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CollectionViewController")

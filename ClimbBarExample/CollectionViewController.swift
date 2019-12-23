@@ -9,10 +9,11 @@
 import UIKit
 import ClimbBar
 
-class CollectionViewController: UIViewController {
+final class CollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    private var climbBar: ClimbBar? = nil
+    private var climbBar: ClimbBar!
+
     override func viewDidLoad() {
         super.viewDidLoad()        
         self.collectionView.delegate = self
@@ -20,18 +21,20 @@ class CollectionViewController: UIViewController {
         
         self.title = "CollectionViewController"
         self.collectionView.contentInsetAdjustmentBehavior = .never
-        let conf = Configuration(range: UIApplication.shared.statusBarFrame.height..<UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.size.height)!)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
+        let conf = Configuration(range: statusBarHeight...toHeaderBottom)
         
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.collectionView,
-                                 state: { (state) in
-                                    self.navigationController?.setAlpha(alpha: state.alpha)
-                                    self.navigationController?.navigationBar.frame = CGRect(x: 0,
-                                                                                            y: state.originY,
-                                                                                            width: self.view.frame.size.width,
-                                                                                            height: 44)
-        })
-        
+                                 state: { [weak self] state in
+                                    self?.navigationController?.setAlpha(alpha: state.alpha)
+                                    let navigtionFrame = CGRect(x: 0,
+                                                                y: state.originY,
+                                                                width: (self?.view.frame.size.width)!,
+                                                                height: 44)
+                                    self?.navigationController?.navigationBar.frame = navigtionFrame
+        })        
     }
 }
 
