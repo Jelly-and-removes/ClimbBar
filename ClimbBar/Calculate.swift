@@ -27,12 +27,12 @@ class Calculate {
     }
     
     var originY: CGFloat {
-        let diffVal = self.configuration.currentStatus + begin - offset.y
+        let diffVal = self.configuration.currentStatus + self.begin - self.offset.y
         return min(max(diffVal, self.configuration.lower), self.configuration.upper)
     }
     
     var height: CGFloat {
-        return (self.originY + self.configuration.climbRange) - origin.y
+        return (self.originY + self.configuration.climbRange) - self.origin.y
     }
     
     var distance: CGFloat {

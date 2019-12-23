@@ -16,9 +16,8 @@ public class ClimbBar: NSObject {
     var beginDrag: CGFloat = 0
     var isEndDrag: Bool  = false
     var previousState: CGFloat!
-
-    public var defaultContentOffset: CGPoint = .zero
-    public var defaultInset:UIEdgeInsets = .zero
+    var defaultContentOffset: CGPoint = .zero
+    var defaultInset: UIEdgeInsets = .zero
 
     public struct State {
         public var originY: CGFloat
@@ -38,8 +37,8 @@ public class ClimbBar: NSObject {
     }
     
     public init(configurations: Configuration,
-         scrollable: UIScrollView,
-         state: @escaping (State) -> Void) {
+                scrollable: UIScrollView,
+                state: @escaping (State) -> Void) {
         
         super.init()
         
@@ -49,16 +48,16 @@ public class ClimbBar: NSObject {
         
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
 
-        self.setConfiguration(conf: configurations)
+        self.configuration(conf: configurations)
     }
     
-    private func setConfiguration (conf: Configuration) {
+    private func configuration (conf: Configuration) {
         self.previousState = conf.compact
         self.defaultContentOffset = CGPoint(x: 0, y: -conf.topDistance)
-        self.defaultInset = UIEdgeInsets(top: conf.topDistance,
-                                         left: self.scrollable.contentInset.left,
+        self.defaultInset = UIEdgeInsets(top:    conf.topDistance,
+                                         left:   self.scrollable.contentInset.left,
                                          bottom: self.scrollable.contentInset.bottom,
-                                         right: self.scrollable.contentInset.right)
+                                         right:  self.scrollable.contentInset.right)
         
         if self.scrollable.contentInsetAdjustmentBehavior == .never {
             self.setScrollable(contentInset: self.defaultInset, contentOffset: self.defaultContentOffset)
@@ -67,32 +66,32 @@ public class ClimbBar: NSObject {
     
     private func setScrollable(contentInset: UIEdgeInsets,
                                contentOffset: CGPoint) {
-        scrollable.contentInset = contentInset
-        scrollable.contentOffset = contentOffset
+        self.scrollable.contentInset = contentInset
+        self.scrollable.contentOffset = contentOffset
     }
     
-    @objc private func handleGesture (_ state: UIGestureRecognizer) {
+    @objc private func handleGesture (_ gesture: UIGestureRecognizer) {
         
-        switch state.state {
+        switch gesture.state {
         case .began:
             self.isEndDrag = false
             self.beginDrag = self.scrollable.contentOffset.y
-            self.configurations.currentStatus = previousState
+            self.configurations.currentStatus = self.previousState
             break
         case .changed:
             
             if !self.isEndDrag {
                 
-                let calculate = Calculate(conf: self.configurations,
-                                           begin: beginDrag,
-                                           offset: self.scrollable.contentOffset,
-                                           origin: self.scrollable.frame.origin)
+                let calculate = Calculate(conf:   self.configurations,
+                                          begin:  self.beginDrag,
+                                          offset: self.scrollable.contentOffset,
+                                          origin: self.scrollable.frame.origin)
                 
                 
-                stateReducer(State(originY: calculate.originY,
-                                   alpha: calculate.alpha,
-                                   distance: calculate.distance,
-                                   height: calculate.height))
+                self.stateReducer(State(originY:  calculate.originY,
+                                        alpha:    calculate.alpha,
+                                        distance: calculate.distance,
+                                        height:   calculate.height))
                 
                 self.previousState = calculate.originY
             }
@@ -102,7 +101,6 @@ public class ClimbBar: NSObject {
             self.isEndDrag = true
             break
         default: break
-            
         }
     }
 }

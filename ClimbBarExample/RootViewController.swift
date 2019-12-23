@@ -13,11 +13,12 @@ class RootViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let items: [String] = ["TableView", "WebView","CollectionView"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
 }
 

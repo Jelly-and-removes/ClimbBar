@@ -20,18 +20,21 @@ class WebViewController: UIViewController {
         
         self.title = "WebViewController"
         
-        webView.load(URLRequest(url: URL(string: "https://github.com")!))
-        webView.scrollView.contentInsetAdjustmentBehavior = .never
-        let conf = Configuration(range: UIApplication.shared.statusBarFrame.height..<UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.size.height)!)
+        self.webView.load(URLRequest(url: URL(string: "https://github.com")!))
+        self.webView.scrollView.contentInsetAdjustmentBehavior = .never
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
+        let conf = Configuration(range: statusBarHeight..<toHeaderBottom)
         
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.webView.scrollView,
                                  state: { (state) in
                                     self.navigationController?.setAlpha(alpha: state.alpha)
-                                    self.navigationController?.navigationBar.frame = CGRect(x: 0,
-                                                                                            y: state.originY,
-                                                                                            width: self.view.frame.size.width,
-                                                                                            height: 44)
+                                    let navigtionFrame = CGRect(x: 0,
+                                                                y: state.originY,
+                                                                width: self.view.frame.size.width,
+                                                                height: 44)
+                                    self.navigationController?.navigationBar.frame = navigtionFrame
         })        
     }
 }

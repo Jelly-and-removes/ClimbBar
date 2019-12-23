@@ -21,9 +21,9 @@ public struct Configuration {
     public init(range: Range<CGFloat>) {
         self.compact = range.lowerBound
         self.normal = range.upperBound
-        self.climbRange = (compact - normal) * -1        
-        self.lower = compact - self.climbRange
-        self.upper = normal - self.climbRange
+        self.climbRange = (self.compact - self.normal) * -1
+        self.lower = self.compact - self.climbRange
+        self.upper = self.normal - self.climbRange
         self.currentStatus = self.compact
         self.topDistance = self.normal
     }
