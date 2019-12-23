@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
-    var climbBar: ClimbBar!
+    private var climbBar: ClimbBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +26,13 @@ class ViewController: UIViewController {
         let conf = Configuration(range: statusBarHeight..<toHeaderBottom)        
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.tableView,
-                                 state: { (state) in
-                                    self.navigationController!.setAlpha(alpha: CGFloat(state.alpha))
+                                 state: { [weak self] state in
+                                    self?.navigationController!.setAlpha(alpha: CGFloat(state.alpha))
                                     let navigtionFrame = CGRect(x: 0,
                                                                 y: state.originY,
-                                                                width: self.view.frame.size.width,
+                                                                width: (self?.view.frame.size.width)!,
                                                                 height: 44)
-                                    self.navigationController?.navigationBar.frame = navigtionFrame
+                                    self?.navigationController?.navigationBar.frame = navigtionFrame
         })
     }
 }

@@ -12,7 +12,7 @@ import ClimbBar
 class CollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    private var climbBar: ClimbBar? = nil
+    private var climbBar: ClimbBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -27,15 +27,14 @@ class CollectionViewController: UIViewController {
         
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.collectionView,
-                                 state: { (state) in
-                                    self.navigationController?.setAlpha(alpha: state.alpha)
+                                 state: { [weak self] state in
+                                    self?.navigationController?.setAlpha(alpha: state.alpha)
                                     let navigtionFrame = CGRect(x: 0,
                                                                 y: state.originY,
-                                                                width: self.view.frame.size.width,
+                                                                width: (self?.view.frame.size.width)!,
                                                                 height: 44)
-                                    self.navigationController?.navigationBar.frame = navigtionFrame
-        })
-        
+                                    self?.navigationController?.navigationBar.frame = navigtionFrame
+        })        
     }
 }
 
