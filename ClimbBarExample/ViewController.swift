@@ -23,7 +23,7 @@ final class ViewController: UIViewController {
 
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
-        let conf = Configuration(range: statusBarHeight..<toHeaderBottom)        
+        let conf = Configuration(range: statusBarHeight...toHeaderBottom)        
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.tableView,
                                  state: { [weak self] state in

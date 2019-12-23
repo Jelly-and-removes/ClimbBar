@@ -23,7 +23,7 @@ final class CollectionViewController: UIViewController {
         self.collectionView.contentInsetAdjustmentBehavior = .never
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
-        let conf = Configuration(range: statusBarHeight..<toHeaderBottom)
+        let conf = Configuration(range: statusBarHeight...toHeaderBottom)
         
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.collectionView,
