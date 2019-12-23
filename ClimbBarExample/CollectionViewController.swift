@@ -9,7 +9,7 @@
 import UIKit
 import ClimbBar
 
-class CollectionViewController: UIViewController {
+final class CollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var climbBar: ClimbBar!

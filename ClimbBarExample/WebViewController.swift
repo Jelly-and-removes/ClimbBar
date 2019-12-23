@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import ClimbBar
 
-class WebViewController: UIViewController {
+final class WebViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     private var climbBar: ClimbBar!
