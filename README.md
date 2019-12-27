@@ -98,6 +98,7 @@ check it bellow link file
 
 https://github.com/keisukeYamagishi/ClimbBar/blob/master/ClimbBarExample/CollectionViewController.swift
 
+when stop Scrollable item scrolling animation,
 Use this logic to "UINavigationaBar" and "CollectionView" position  can adjust it
 
 ```
