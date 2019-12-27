@@ -14,6 +14,7 @@ final class RootViewController: UIViewController {
     
     private let items: [String] = ["TableView", "WebView", "CollectionView"]
 
+    // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +23,7 @@ final class RootViewController: UIViewController {
     }
 }
 
+// MARK: UITableViewDataSource
 extension RootViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

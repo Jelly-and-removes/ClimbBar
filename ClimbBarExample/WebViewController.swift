@@ -15,6 +15,7 @@ final class WebViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     private var climbBar: ClimbBar!
     
+    // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
