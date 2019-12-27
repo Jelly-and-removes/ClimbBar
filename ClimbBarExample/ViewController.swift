@@ -15,6 +15,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     private var climbBar: ClimbBar!
 
+    // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "ViewController"
@@ -37,6 +38,7 @@ final class ViewController: UIViewController {
     }
 }
 
+// MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

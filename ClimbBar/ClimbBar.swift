@@ -64,6 +64,10 @@ public class ClimbBar: NSObject {
         }
     }
     
+    public func adjustScrollable(){
+        self.setScrollable(contentInset: self.defaultInset, contentOffset: self.defaultContentOffset)
+    }
+    
     private func setScrollable(contentInset: UIEdgeInsets,
                                contentOffset: CGPoint) {
         self.scrollable.contentInset = contentInset
