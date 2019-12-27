@@ -20,7 +20,6 @@ final class CollectionViewController: UIViewController {
         self.collectionView.dataSource = self
         
         self.title = "CollectionViewController"
-        self.collectionView.contentInsetAdjustmentBehavior = .never
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
         let conf = Configuration(range: statusBarHeight...toHeaderBottom)
@@ -52,7 +51,7 @@ extension CollectionViewController: UICollectionViewDataSource {
 }
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize: CGFloat = self.view.frame.size.width/3 - 2
         return CGSize(width: cellSize, height: cellSize)
