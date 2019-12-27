@@ -92,3 +92,30 @@ override func viewDidLoad() {
 
 ```
 
+## Adjust position sample code
+
+Use this logic to "UINavigationaBar" and "CollectionView" position  can adjust it
+
+```
+// MARK: UIScrollViewDelegate
+extension CollectionViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let statusBarFrame = UIApplication.shared.statusBarFrame
+        let navigationFrame = self.navigationController?.navigationBar.frame
+        
+        if self.collectionView.contentOffset.y < (statusBarFrame.size.height + (navigationFrame?.size.height)!)
+            && ((statusBarFrame.size.height + (navigationFrame?.size.height)!) + 100) > self.collectionView.contentOffset.y {
+            UIView.animate(withDuration: 0.23, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.4, options: .curveEaseOut, animations: {
+                self.climbBar.adjustScrollable()
+                let navigtionFrame = CGRect(x: 0,
+                                            y: UIApplication.shared.statusBarFrame.size.height,
+                                            width: self.view.frame.size.width,
+                                            height: 44)
+                self.navigationController?.navigationBar.frame = navigtionFrame
+            })
+        }
+    }
+}
+```
+
