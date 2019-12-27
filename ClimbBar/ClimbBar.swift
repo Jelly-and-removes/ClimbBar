@@ -16,8 +16,8 @@ public class ClimbBar: NSObject {
     var beginDrag: CGFloat = 0
     var isEndDrag: Bool  = false
     var previousState: CGFloat!
-    var defaultContentOffset: CGPoint = .zero
-    var defaultInset: UIEdgeInsets = .zero
+    public var defaultContentOffset: CGPoint = .zero
+    public var defaultInset: UIEdgeInsets = .zero
 
     public struct State {
         public var originY: CGFloat
