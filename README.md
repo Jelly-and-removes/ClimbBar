@@ -94,6 +94,10 @@ override func viewDidLoad() {
 
 ## Adjust position sample code
 
+check it bellow link file
+
+https://github.com/keisukeYamagishi/ClimbBar/blob/master/ClimbBarExample/CollectionViewController.swift
+
 Use this logic to "UINavigationaBar" and "CollectionView" position  can adjust it
 
 ```
