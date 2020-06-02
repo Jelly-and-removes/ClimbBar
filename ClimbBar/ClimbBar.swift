@@ -18,7 +18,10 @@ public class ClimbBar: NSObject {
     var previousState: CGFloat!
     public var defaultContentOffset: CGPoint = .zero
     public var defaultInset: UIEdgeInsets = .zero
-
+    public var defaultContentOffsetY: CGFloat {
+        return self.defaultContentOffset.y
+    }
+    
     public struct State {
         public var originY: CGFloat
         public var alpha: CGFloat
@@ -65,7 +68,8 @@ public class ClimbBar: NSObject {
     }
     
     public func adjustScrollable(){
-        self.setScrollable(contentInset: self.defaultInset, contentOffset: self.defaultContentOffset)
+        self.setScrollable(contentInset: self.defaultInset,
+                           contentOffset: self.defaultContentOffset)
     }
     
     private func setScrollable(contentInset: UIEdgeInsets,
