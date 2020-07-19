@@ -24,16 +24,17 @@ final class CollectionViewController: UIViewController {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
         let conf = Configuration(range: statusBarHeight...toHeaderBottom)
-        
+        collectionView.contentInsetAdjustmentBehavior = .never
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.collectionView,
-                                 state: { [weak self] state in
-                                    self?.navigationController?.setAlpha(alpha: state.alpha)
+                                 state: { [weak self] state in                                    
+                                    guard let self = self else { return }
+                                    self.navigationController?.setAlpha(alpha: state.alpha)
                                     let navigtionFrame = CGRect(x: 0,
                                                                 y: state.originY,
-                                                                width: (self?.view.frame.size.width)!,
+                                                                width: self.view.frame.size.width,
                                                                 height: 44)
-                                    self?.navigationController?.navigationBar.frame = navigtionFrame
+                                    self.navigationController?.navigationBar.frame = navigtionFrame
         })        
     }
 }
