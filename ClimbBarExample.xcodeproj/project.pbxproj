@@ -10,7 +10,8 @@
 		C72665DE235F27390072FDDB /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72665DD235F27390072FDDB /* CollectionViewController.swift */; };
 		C72665E0235F2A9D0072FDDB /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72665DF235F2A9D0072FDDB /* CollectionCell.swift */; };
 		C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8DD229170EC008EB5DF /* Configuration.swift */; };
-		C72CD8E9229192F8008EB5DF /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* Calculate.swift */; };
+		C72CD8E9229192F8008EB5DF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* Extension.swift */; };
+		C7325D1524C47B49003D13DB /* ClimbBarObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */; };
 		C74EF99E2294E8C600706FDA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF99D2294E8C600706FDA /* RootViewController.swift */; };
 		C74EF9A02294EB3A00706FDA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF99F2294EB3A00706FDA /* WebViewController.swift */; };
 		C74EF9A32294ED0400706FDA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EF9A22294ED0400706FDA /* WebKit.framework */; };
@@ -54,7 +55,8 @@
 		C72665DD235F27390072FDDB /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		C72665DF235F2A9D0072FDDB /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		C72CD8DD229170EC008EB5DF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		C72CD8E8229192F8008EB5DF /* Calculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
+		C72CD8E8229192F8008EB5DF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbBarObservable.swift; sourceTree = "<group>"; };
 		C74EF99D2294E8C600706FDA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C74EF99F2294EB3A00706FDA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C74EF9A22294ED0400706FDA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -144,7 +146,8 @@
 				C79EBFC22282A92A00B2E0CB /* ClimbBar.swift */,
 				C72CD8DD229170EC008EB5DF /* Configuration.swift */,
 				C79EBFB82282A63700B2E0CB /* Info.plist */,
-				C72CD8E8229192F8008EB5DF /* Calculate.swift */,
+				C72CD8E8229192F8008EB5DF /* Extension.swift */,
+				C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */,
 			);
 			path = ClimbBar;
 			sourceTree = "<group>";
@@ -279,7 +282,8 @@
 			files = (
 				C79EBFC32282A92A00B2E0CB /* ClimbBar.swift in Sources */,
 				C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */,
-				C72CD8E9229192F8008EB5DF /* Calculate.swift in Sources */,
+				C72CD8E9229192F8008EB5DF /* Extension.swift in Sources */,
+				C7325D1524C47B49003D13DB /* ClimbBarObservable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

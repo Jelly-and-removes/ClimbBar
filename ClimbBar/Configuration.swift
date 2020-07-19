@@ -9,10 +9,10 @@
 import UIKit
 
 public struct Configuration {
-    
+
     var compact: CGFloat = 0
     var normal: CGFloat = 0
-    var climbRange:CGFloat = 0
+    var climbRange: CGFloat = 0
     var lower: CGFloat = 0
     var upper: CGFloat = 0
     var currentStatus: CGFloat = 0

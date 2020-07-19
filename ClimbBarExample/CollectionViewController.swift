@@ -27,7 +27,8 @@ final class CollectionViewController: UIViewController {
         collectionView.contentInsetAdjustmentBehavior = .never
         self.climbBar = ClimbBar(configurations: conf,
                                  scrollable: self.collectionView,
-                                 state: { [weak self] state in                                    
+                                 state: { [weak self] state in
+                                    print("state originY \(state.originY)\nstate distance \(state.distance)\nstate height \(state.height)\nstate alpha \(state.alpha)")
                                     guard let self = self else { return }
                                     self.navigationController?.setAlpha(alpha: state.alpha)
                                     let navigtionFrame = CGRect(x: 0,

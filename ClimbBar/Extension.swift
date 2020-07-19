@@ -8,38 +8,21 @@
 
 import Foundation
 
-class Calculate {
-    
-    var configuration: Configuration
-    var begin: CGFloat
-    var offset: CGPoint
-    var origin: CGPoint
-    
-    init(conf: Configuration,
-         begin: CGFloat,
-         offset: CGPoint,
-         origin: CGPoint) {
-        
-        self.configuration = conf
-        self.begin = begin
-        self.offset = offset
-        self.origin = origin
-    }
-    
-    var originY: CGFloat {
+extension ClimbBar.State {
+    public var originY: CGFloat {
         let diffVal = self.configuration.currentStatus + self.begin - self.offset.y
         return min(max(diffVal, self.configuration.lower), self.configuration.upper)
     }
     
-    var height: CGFloat {
+    public var height: CGFloat {
         return (self.originY + self.configuration.climbRange) - self.origin.y
     }
     
-    var distance: CGFloat {
+    public var distance: CGFloat {
         return self.height - self.configuration.compact
     }
     
-    var alpha: CGFloat {
+    public var alpha: CGFloat {
         return CGFloat((self.height - self.configuration.compact) / self.configuration.climbRange)
     }
 }
