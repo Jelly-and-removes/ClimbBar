@@ -8,6 +8,7 @@
 
 import UIKit.UIGestureRecognizer
 
+// swiftlint:disable all
 public class ClimbBar: NSObject {
 
     public var defaultContentOffset: CGPoint
@@ -40,7 +41,7 @@ public class ClimbBar: NSObject {
             self.origin = origin
         }
     }
-    
+
     public init(configurations: Configuration!,
                 scrollable: UIScrollView!) {
         self.configurations = configurations
@@ -82,8 +83,8 @@ public class ClimbBar: NSObject {
         }
     }
 
-    public func adjustScrollable(){
-        self.setScrollable(contentInset: self.defaultInset,
+    public func adjustScrollable() {
+        self.setScrollable(contentInset:  self.defaultInset,
                            contentOffset: self.defaultContentOffset)
     }
 
@@ -99,7 +100,6 @@ public class ClimbBar: NSObject {
             self.isReachable = false
             self.beginDrag = self.scrollable.contentOffset.y
             self.configurations.currentStatus = self.previousState
-            break
         case .ended:
             /*
              * If the start and stop times are less than or equal to zero,
@@ -115,3 +115,4 @@ public class ClimbBar: NSObject {
         }
     }
 }
+// swiftlint:enable all

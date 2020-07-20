@@ -13,15 +13,15 @@ extension ClimbBar.State {
         let diffVal = self.configuration.currentStatus + self.begin - self.offset.y
         return min(max(diffVal, self.configuration.lower), self.configuration.upper)
     }
-    
+
     public var height: CGFloat {
         return (self.originY + self.configuration.climbRange) - self.origin.y
     }
-    
+
     public var distance: CGFloat {
         return self.height - self.configuration.compact
     }
-    
+
     public var alpha: CGFloat {
         return CGFloat((self.height - self.configuration.compact) / self.configuration.climbRange)
     }

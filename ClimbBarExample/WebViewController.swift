@@ -22,7 +22,6 @@ final class WebViewController: UIViewController {
         title = "WebViewController"
 
         webView.load(URLRequest(url: URL(string: "https://github.com")!))
-        webView.scrollView.contentInsetAdjustmentBehavior = .never
 
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
