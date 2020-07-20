@@ -8,6 +8,7 @@
 
 import CoreGraphics.CGGeometry
 
+// swiftlint:disable all
 internal class ClimbBarObservable: NSObject {
     private let key: String
     private weak var object: AnyObject?
@@ -31,7 +32,7 @@ internal class ClimbBarObservable: NSObject {
 
     override func observeValue(forKeyPath key: String?,
                                of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
+                               change: [NSKeyValueChangeKey: Any]?,
                                context: UnsafeMutableRawPointer?) {
         guard context == &observingContext,
             let newValue = change?[NSKeyValueChangeKey.newKey] as? CGPoint
@@ -41,3 +42,4 @@ internal class ClimbBarObservable: NSObject {
         observer?(newValue)
     }
 }
+// swiftlint:disable all

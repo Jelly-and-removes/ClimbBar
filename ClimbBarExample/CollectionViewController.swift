@@ -10,23 +10,22 @@ import UIKit
 import ClimbBar
 
 final class CollectionViewController: UIViewController {
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     private var climbBar: ClimbBar!
 
     // MARK: lifecycle
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+
         title = "CollectionViewController"
-        
+
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
-        
+
         let conf = Configuration(range: statusBarHeight...toHeaderBottom)
-        collectionView.contentInsetAdjustmentBehavior = .never
 
         climbBar = ClimbBar(configurations: conf,
                             scrollable: collectionView)
@@ -49,9 +48,13 @@ extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionCell
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
+                                                            for: indexPath) as? CollectionCell else {
+                                                                return UICollectionViewCell()
+        }
         cell.icon.image = #imageLiteral(resourceName: "smokin")
         return cell
     }
@@ -60,7 +63,9 @@ extension CollectionViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize: CGFloat = self.view.frame.size.width/3 - 2
         return CGSize(width: cellSize, height: cellSize)
     }
