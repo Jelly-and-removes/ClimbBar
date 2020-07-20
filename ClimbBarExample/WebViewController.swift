@@ -11,32 +11,34 @@ import WebKit
 import ClimbBar
 
 final class WebViewController: UIViewController {
-    
+
     @IBOutlet weak var webView: WKWebView!
     private var climbBar: ClimbBar!
-    
+
     // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "WebViewController"
-        
-        self.webView.load(URLRequest(url: URL(string: "https://github.com")!))
-        self.webView.scrollView.contentInsetAdjustmentBehavior = .never
+
+        title = "WebViewController"
+
+        webView.load(URLRequest(url: URL(string: "https://github.com")!))
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
+
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
+        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
         let conf = Configuration(range: statusBarHeight...toHeaderBottom)
-        
-        self.climbBar = ClimbBar(configurations: conf,
-                                 scrollable: self.webView.scrollView,
-                                 state: { [weak self] (state) in
-                                    guard let self = self else { return }
-                                    self.navigationController?.setAlpha(alpha: state.alpha)
-                                    let navigtionFrame = CGRect(x: 0,
-                                                                y: state.originY,
-                                                                width: self.view.frame.size.width,
-                                                                height: 44)
-                                    self.navigationController?.navigationBar.frame = navigtionFrame
-        })        
+
+        climbBar = ClimbBar(configurations: conf,
+                            scrollable: webView.scrollView)
+
+        climbBar.observer = { [weak self] (state) in
+            guard let self = self else { return }
+            self.navigationController?.setAlpha(alpha: state.alpha)
+            let navigtionFrame = CGRect(x: 0,
+                                        y: state.originY,
+                                        width: self.view.frame.size.width,
+                                        height: 44)
+            self.navigationController?.navigationBar.frame = navigtionFrame
+        }
     }
 }

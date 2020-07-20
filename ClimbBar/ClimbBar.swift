@@ -10,19 +10,19 @@ import UIKit.UIGestureRecognizer
 
 public class ClimbBar: NSObject {
 
+    public var defaultContentOffset: CGPoint
+    public var defaultInset: UIEdgeInsets
+    public var observer: ((State) -> Void)?
+    public var defaultContentOffsetY: CGFloat {
+        return self.defaultContentOffset.y
+    }
+
     var configurations: Configuration!
     var scrollable: UIScrollView!
-    var stateReducer: ((State) -> Void)!
     var beginDrag: CGFloat
     var previousState: CGFloat!
     var isReachable: Bool = false
     var climbBarObservable: ClimbBarObservable
-    public var defaultContentOffset: CGPoint
-    public var defaultInset: UIEdgeInsets
-
-    public var defaultContentOffsetY: CGFloat {
-        return self.defaultContentOffset.y
-    }
 
     public struct State {
         var configuration: Configuration
@@ -42,8 +42,7 @@ public class ClimbBar: NSObject {
     }
     
     public init(configurations: Configuration!,
-                scrollable: UIScrollView!,
-                state: ((State) -> Void)!) {
+                scrollable: UIScrollView!) {
         self.configurations = configurations
         self.scrollable = scrollable
         self.beginDrag = 0
@@ -61,10 +60,9 @@ public class ClimbBar: NSObject {
                               offset: self.scrollable.contentOffset,
                               origin: self.scrollable.frame.origin)
             guard self.isReachable == false else { return }
-            self.stateReducer(state)
+            self.observer?(state)
             self.previousState = state.originY
         }
-        self.stateReducer = state
 
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
 
