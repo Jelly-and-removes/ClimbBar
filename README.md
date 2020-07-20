@@ -38,38 +38,6 @@ $ git clone git@github.com:keisukeYamagishi/ClimbBar.git
 $ git clone https://github.com/keisukeYamagishi/ClimbBar.git
 ```
 
-## Use it 
-
-
-
-### Custom bar
-
-ClimbBar uses contentInset to move the scroll elements, so
-
-As in the picture below
-
-#### Storyboard
-
-![](https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/contentInset.png)
-
-####  Code
-
-```
-self.scrollable.contentInsetAdjustmentBehavior = .never
-```
-
-### Apple offical site
-UIScrollView.ContentInsetAdjustmentBehavior
-Constants indicating how safe area insets are added to the adjusted content inset.
-
-Please use it as Never.
-
-[UIScrollView.ContentInsetAdjustmentBehavior (Apple)](https://developer.apple.com/documentation/uikit/uiscrollview/contentinsetadjustmentbehavior)
-
-***BUT Look at the following***
-
-If you use UINavigationController, it will work without using it.
-
 ## Sample code
 
 ```Swift
