@@ -17,26 +17,29 @@ final class CollectionViewController: UIViewController {
     // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()        
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
-        self.title = "CollectionViewController"
+        title = "CollectionViewController"
+        
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
+        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
+        
         let conf = Configuration(range: statusBarHeight...toHeaderBottom)
         collectionView.contentInsetAdjustmentBehavior = .never
-        self.climbBar = ClimbBar(configurations: conf,
-                                 scrollable: self.collectionView,
-                                 state: { [weak self] state in
-                                    print("state originY \(state.originY)\nstate distance \(state.distance)\nstate height \(state.height)\nstate alpha \(state.alpha)")
-                                    guard let self = self else { return }
-                                    self.navigationController?.setAlpha(alpha: state.alpha)
-                                    let navigtionFrame = CGRect(x: 0,
-                                                                y: state.originY,
-                                                                width: self.view.frame.size.width,
-                                                                height: 44)
-                                    self.navigationController?.navigationBar.frame = navigtionFrame
-        })        
+
+        climbBar = ClimbBar(configurations: conf,
+                            scrollable: collectionView)
+
+        climbBar.observer = { [weak self] state in
+            guard let self = self else { return }
+            self.navigationController?.setAlpha(alpha: state.alpha)
+            let navigtionFrame = CGRect(x: 0,
+                                        y: state.originY,
+                                        width: self.view.frame.size.width,
+                                        height: 44)
+            self.navigationController?.navigationBar.frame = navigtionFrame
+        }
     }
 }
 

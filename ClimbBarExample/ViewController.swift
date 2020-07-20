@@ -18,24 +18,26 @@ final class ViewController: UIViewController {
     // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "ViewController"
+        title = "ViewController"
 
-        self.tableView.dataSource = self
+        tableView.dataSource = self
 
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let toHeaderBottom = statusBarHeight + (self.navigationController?.navigationBar.frame.size.height)!
-        let conf = Configuration(range: statusBarHeight...toHeaderBottom)        
-        self.climbBar = ClimbBar(configurations: conf,
-                                 scrollable: self.tableView,
-                                 state: { [weak self] state in
-                                    guard let self = self else { return }
-                                    self.navigationController?.setAlpha(alpha: CGFloat(state.alpha))
-                                    let navigtionFrame = CGRect(x: 0,
-                                                                y: state.originY,
-                                                                width: self.view.frame.size.width,
-                                                                height: 44)
-                                    self.navigationController?.navigationBar.frame = navigtionFrame
-        })
+        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
+        let conf = Configuration(range: statusBarHeight...toHeaderBottom)
+
+        climbBar = ClimbBar(configurations: conf,
+                            scrollable: tableView)
+
+        climbBar.observer = { [weak self] state in
+            guard let self = self else { return }
+            self.navigationController?.setAlpha(alpha: CGFloat(state.alpha))
+            let navigtionFrame = CGRect(x: 0,
+                                        y: state.originY,
+                                        width: self.view.frame.size.width,
+                                        height: 44)
+            self.navigationController?.navigationBar.frame = navigtionFrame
+        }
     }
 }
 
