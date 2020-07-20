@@ -13,6 +13,8 @@ iOS library that can extend a View that has scrollable elements such as UITableV
 
 As you can see in the example apps, the scroll bar hides the navigation bar.
 
+I was affected by AirBar.
+
 |travis| status |
 |:----|:------|
 |result|[![](https://travis-ci.org/keisukeYamagishi/ClimbBar.svg?branch=master)](https://travis-ci.org/keisukeYamagishi/ClimbBar)|
@@ -73,54 +75,23 @@ If you use UINavigationController, it will work without using it.
 ```Swift
 override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-       
-        let conf = Configuration(range: UIApplication.shared.statusBarFrame.height..<UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.size.height)!)
-        
-        self.title = "ViewController"
-        
-        self.climbBar = ClimbBar(configurations: conf,
-                                 scrollable: self.tableView,
-                                 state: { (state) in
-                                    self.navigationController!.setAlpha(alpha: CGFloat(state.alpha))
-                                    self.navigationController?.navigationBar.frame = CGRect(x: 0,
-                                                                                            y: state.originY,
-                                                                                            width: self.view.frame.size.width,
-                                                                                            height: 44)
-        })
-    }
+        tableView.dataSource = self
 
-```
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
+        let conf = Configuration(range: statusBarHeight...toHeaderBottom)
 
-## Adjust position sample code
+        climbBar = ClimbBar(configurations: conf,
+                            scrollable: tableView)
 
-check it bellow link file
-
-https://github.com/keisukeYamagishi/ClimbBar/blob/master/ClimbBarExample/CollectionViewController.swift
-
-when stoped Scrollable item scrolling animation,
-Use this logic to "UINavigationaBar" and "CollectionView" position  can adjust it
-
-```
-// MARK: UIScrollViewDelegate
-extension CollectionViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let statusBarFrame = UIApplication.shared.statusBarFrame
-        let navigationFrame = self.navigationController?.navigationBar.frame
-        
-        if self.collectionView.contentOffset.y < (statusBarFrame.size.height + (navigationFrame?.size.height)!)
-            && ((statusBarFrame.size.height + (navigationFrame?.size.height)!) + 100) > self.collectionView.contentOffset.y {
-            UIView.animate(withDuration: 0.23, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.4, options: .curveEaseOut, animations: {
-                self.climbBar.adjustScrollable()
-                let navigtionFrame = CGRect(x: 0,
-                                            y: UIApplication.shared.statusBarFrame.size.height,
-                                            width: self.view.frame.size.width,
-                                            height: 44)
-                self.navigationController?.navigationBar.frame = navigtionFrame
-            })
+        climbBar.observer = { [weak self] state in
+            guard let self = self else { return }
+            self.navigationController?.setAlpha(alpha: CGFloat(state.alpha))
+            let navigtionFrame = CGRect(x: 0,
+                                        y: state.originY,
+                                        width: self.view.frame.size.width,
+                                        height: 44)
+            self.navigationController?.navigationBar.frame = navigtionFrame
         }
     }
-}
 ```
-
