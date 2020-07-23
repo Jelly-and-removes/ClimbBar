@@ -21,7 +21,7 @@ I was affected by AirBar.
 
 ## Gif
 
-<img src="./doc/climbbar-demo.gif" width=70% height="70%">
+<img src="./doc/climbbar-demo.gif" width=50% height="50%">
 
 ## Cocoapods
 
