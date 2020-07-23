@@ -19,6 +19,10 @@ I was affected by AirBar.
 |:----|:------|
 |result|[![](https://travis-ci.org/keisukeYamagishi/ClimbBar.svg?branch=master)](https://travis-ci.org/keisukeYamagishi/ClimbBar)|
 
+## Gif
+
+<img src="./doc/climbbar-demo.gif" width=70% height="70%">
+
 ## Cocoapods
 
 ```
