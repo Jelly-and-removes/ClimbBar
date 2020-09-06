@@ -22,7 +22,7 @@ extension ClimbBar.State {
         return self.height - self.configuration.compact
     }
 
-    public var alpha: CGFloat {
+    public var progress: CGFloat {
         return CGFloat((self.height - self.configuration.compact) / self.configuration.climbRange)
     }
 }

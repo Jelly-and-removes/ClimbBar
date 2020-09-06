@@ -32,7 +32,7 @@ final class WebViewController: UIViewController {
 
         climbBar.observer = { [weak self] (state) in
             guard let self = self else { return }
-            self.navigationController?.setAlpha(alpha: state.alpha)
+            self.navigationController?.setAlpha(alpha: state.progress)
             let navigtionFrame = CGRect(x: 0,
                                         y: state.originY,
                                         width: self.view.frame.size.width,

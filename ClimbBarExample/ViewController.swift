@@ -31,7 +31,7 @@ final class ViewController: UIViewController {
 
         climbBar.observer = { [weak self] state in
             guard let self = self else { return }
-            self.navigationController?.setAlpha(alpha: CGFloat(state.alpha))
+            self.navigationController?.setAlpha(alpha: CGFloat(state.progress))
             let navigtionFrame = CGRect(x: 0,
                                         y: state.originY,
                                         width: self.view.frame.size.width,
