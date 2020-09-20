@@ -6,16 +6,16 @@
 //  Copyright © 2019 Shichimitoucarashi. All rights reserved.
 //
 
+import ClimbBar
 import UIKit
 import WebKit
-import ClimbBar
 
 final class WebViewController: UIViewController {
-
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet var webView: WKWebView!
     private var climbBar: ClimbBar!
 
     // MARK: lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,12 +25,12 @@ final class WebViewController: UIViewController {
 
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
-        let conf = Configuration(range: statusBarHeight...toHeaderBottom)
+        let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
 
         climbBar = ClimbBar(configurations: conf,
                             scrollable: webView.scrollView)
 
-        climbBar.observer = { [weak self] (state) in
+        climbBar.observer = { [weak self] state in
             guard let self = self else { return }
             self.navigationController?.setAlpha(alpha: state.progress)
             let navigtionFrame = CGRect(x: 0,
@@ -39,5 +39,9 @@ final class WebViewController: UIViewController {
                                         height: 44)
             self.navigationController?.navigationBar.frame = navigtionFrame
         }
+    }
+
+    deinit {
+        print(#function)
     }
 }

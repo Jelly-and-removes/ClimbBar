@@ -6,16 +6,16 @@
 //  Copyright © 2019 Shichimitoucarashi. All rights reserved.
 //
 
-import UIKit
 import ClimbBar
+import UIKit
 
 final class ViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var headerView: UIView!
     private var climbBar: ClimbBar!
 
     // MARK: lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ViewController"
@@ -24,7 +24,7 @@ final class ViewController: UIViewController {
 
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
-        let conf = Configuration(range: statusBarHeight...toHeaderBottom)
+        let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
 
         climbBar = ClimbBar(configurations: conf,
                             scrollable: tableView)
@@ -39,12 +39,16 @@ final class ViewController: UIViewController {
             self.navigationController?.navigationBar.frame = navigtionFrame
         }
     }
+
+    deinit {
+        print(#function)
+    }
 }
 
 // MARK: UITableViewDataSource
-extension ViewController: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ViewController: UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 50
     }
 

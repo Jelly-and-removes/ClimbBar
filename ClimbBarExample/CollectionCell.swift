@@ -6,8 +6,8 @@
 //  Copyright © 2019 Shichimitoucarashi. All rights reserved.
 //
 
-import  UIKit
+import UIKit
 
 final class CollectionCell: UICollectionViewCell {
-    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet var icon: UIImageView!
 }

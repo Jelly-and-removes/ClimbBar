@@ -11,11 +11,11 @@ import UIKit
 extension UINavigationController {
     func setAlpha(alpha: CGFloat) {
         let blackAlpha = UIColor.black.withAlphaComponent(alpha)
-        if self.navigationBar.titleTextAttributes == nil {
-            self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackAlpha]
+        if navigationBar.titleTextAttributes == nil {
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackAlpha]
         } else {
-            self.navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] = blackAlpha
+            navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] = blackAlpha
         }
-        self.navigationBar.tintColor = self.navigationBar.tintColor.withAlphaComponent(alpha)
+        navigationBar.tintColor = navigationBar.tintColor.withAlphaComponent(alpha)
     }
 }
