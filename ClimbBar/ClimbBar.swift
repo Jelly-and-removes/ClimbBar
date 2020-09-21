@@ -10,14 +10,10 @@ import UIKit.UIGestureRecognizer
 
 // swiftlint:disable all
 public class ClimbBar: NSObject {
-
-    public var defaultContentOffset: CGPoint
-    public var defaultInset: UIEdgeInsets
     public var observer: ((State) -> Void)?
-    public var defaultContentOffsetY: CGFloat {
-        return self.defaultContentOffset.y
-    }
 
+    var defaultContentOffset: CGPoint
+    var defaultInset: UIEdgeInsets
     var configurations: Configuration!
     var scrollable: UIScrollView!
     var beginDrag: CGFloat
@@ -34,8 +30,9 @@ public class ClimbBar: NSObject {
         init(conf: Configuration,
              begin: CGFloat,
              offset: CGPoint,
-             origin: CGPoint) {
-            self.configuration = conf
+             origin: CGPoint)
+        {
+            configuration = conf
             self.begin = begin
             self.offset = offset
             self.origin = origin
@@ -43,21 +40,22 @@ public class ClimbBar: NSObject {
     }
 
     public init(configurations: Configuration!,
-                scrollable: UIScrollView!) {
+                scrollable: UIScrollView!)
+    {
         self.configurations = configurations
         self.scrollable = scrollable
-        self.beginDrag = 0
-        self.defaultContentOffset = .zero
-        self.defaultInset = .zero
+        beginDrag = 0
+        defaultContentOffset = .zero
+        defaultInset = .zero
 
         climbBarObservable = ClimbBarObservable(key: #keyPath(UIScrollView.contentOffset), object: self.scrollable)
 
         super.init()
 
-        climbBarObservable.observer = { [weak self] value in
+        climbBarObservable.observer = { [weak self] _ in
             guard let self = self else { return }
-            let state = State(conf:   self.configurations,
-                              begin:  self.beginDrag,
+            let state = State(conf: self.configurations,
+                              begin: self.beginDrag,
                               offset: self.scrollable.contentOffset,
                               origin: self.scrollable.frame.origin)
             guard self.isReachable == false else { return }
@@ -67,46 +65,47 @@ public class ClimbBar: NSObject {
 
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
 
-        self.configuration(conf: configurations)
+        configuration(conf: configurations)
     }
 
-    private func configuration (conf: Configuration) {
-        self.previousState = conf.compact
-        self.defaultContentOffset = CGPoint(x: 0, y: -conf.topDistance)
-        self.defaultInset = UIEdgeInsets(top:    conf.topDistance,
-                                         left:   self.scrollable.contentInset.left,
-                                         bottom: self.scrollable.contentInset.bottom,
-                                         right:  self.scrollable.contentInset.right)
+    private func configuration(conf: Configuration) {
+        previousState = conf.compact
+        defaultContentOffset = CGPoint(x: 0, y: -conf.normal)
+        defaultInset = UIEdgeInsets(top: conf.normal,
+                                    left: scrollable.contentInset.left,
+                                    bottom: scrollable.contentInset.bottom,
+                                    right: scrollable.contentInset.right)
 
-        if self.scrollable.contentInsetAdjustmentBehavior == .never {
-            self.setScrollable(contentInset: self.defaultInset, contentOffset: self.defaultContentOffset)
+        if scrollable.contentInsetAdjustmentBehavior == .never {
+            setScrollable(contentInset: defaultInset, contentOffset: defaultContentOffset)
         }
     }
 
     public func adjustScrollable() {
-        self.setScrollable(contentInset:  self.defaultInset,
-                           contentOffset: self.defaultContentOffset)
+        setScrollable(contentInset: defaultInset,
+                      contentOffset: defaultContentOffset)
     }
 
     private func setScrollable(contentInset: UIEdgeInsets,
-                               contentOffset: CGPoint) {
-        self.scrollable.contentInset = contentInset
-        self.scrollable.contentOffset = contentOffset
+                               contentOffset: CGPoint)
+    {
+        scrollable.contentInset = contentInset
+        scrollable.contentOffset = contentOffset
     }
 
-    @objc private func handleGesture (_ gesture: UIGestureRecognizer) {
+    @objc private func handleGesture(_ gesture: UIGestureRecognizer) {
         switch gesture.state {
         case .began:
-            self.isReachable = false
-            self.beginDrag = self.scrollable.contentOffset.y
-            self.configurations.currentStatus = self.previousState
+            isReachable = false
+            beginDrag = scrollable.contentOffset.y
+            configurations.currentStatus = previousState
         case .ended:
             /*
              * If the start and stop times are less than or equal to zero,
              * the movement is stopped.
              */
-            if self.beginDrag < 0 {
-                self.isReachable = true
+            if beginDrag < 0 {
+                isReachable = true
             }
         case .possible, .changed, .cancelled, .failed:
             break
@@ -115,4 +114,5 @@ public class ClimbBar: NSObject {
         }
     }
 }
+
 // swiftlint:enable all

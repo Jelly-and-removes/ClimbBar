@@ -9,12 +9,12 @@
 import UIKit
 
 final class RootViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     private let items: [String] = ["TableView", "WebView", "CollectionView"]
 
     // MARK: lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,10 +24,9 @@ final class RootViewController: UIViewController {
 }
 
 // MARK: UITableViewDataSource
+
 extension RootViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let firstViewController = storyboard?.instantiateViewController(withIdentifier: "ViewController")
             firstViewController?.modalPresentationStyle = .fullScreen
@@ -43,8 +42,7 @@ extension RootViewController: UITableViewDelegate {
 }
 
 extension RootViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return items.count
     }
 

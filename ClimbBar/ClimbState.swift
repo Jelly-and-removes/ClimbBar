@@ -9,7 +9,6 @@
 import UIKit
 
 public class State {
-
     public var origin: CGPoint?
     public var size: CGSize?
     public var conf: Configuration?
@@ -20,10 +19,11 @@ public class State {
 
     init(configurations: Configuration,
          origin: CGPoint,
-         size: CGSize) {
-        self.conf = configurations
+         size: CGSize)
+    {
+        conf = configurations
         self.origin = origin
         self.size = size
-        self.pbState = conf!.compact
+        pbState = conf!.compact
     }
 }

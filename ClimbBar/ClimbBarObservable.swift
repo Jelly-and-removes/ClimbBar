@@ -30,16 +30,18 @@ internal class ClimbBarObservable: NSObject {
                                context: &observingContext)
     }
 
-    override func observeValue(forKeyPath key: String?,
-                               of object: Any?,
+    override func observeValue(forKeyPath _: String?,
+                               of _: Any?,
                                change: [NSKeyValueChangeKey: Any]?,
-                               context: UnsafeMutableRawPointer?) {
+                               context: UnsafeMutableRawPointer?)
+    {
         guard context == &observingContext,
             let newValue = change?[NSKeyValueChangeKey.newKey] as? CGPoint
-            else {
-                return
+        else {
+            return
         }
         observer?(newValue)
     }
 }
+
 // swiftlint:disable all
