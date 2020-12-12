@@ -36,7 +36,7 @@ internal class ClimbBarObservable: NSObject {
                                context: UnsafeMutableRawPointer?)
     {
         guard context == &observingContext,
-            let newValue = change?[NSKeyValueChangeKey.newKey] as? CGPoint
+              let newValue = change?[NSKeyValueChangeKey.newKey] as? CGPoint
         else {
             return
         }
