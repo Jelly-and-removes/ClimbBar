@@ -8,21 +8,21 @@
 
 import Foundation
 
-extension ClimbBar.State {
-    public var originY: CGFloat {
+public extension ClimbBar.State {
+    var originY: CGFloat {
         let diffVal = configuration.currentStatus + begin - offset.y
         return min(max(diffVal, configuration.lower), configuration.upper)
     }
 
-    public var height: CGFloat {
+    var height: CGFloat {
         return (originY + configuration.climbRange) - origin.y
     }
 
-    public var distance: CGFloat {
+    var distance: CGFloat {
         return height - configuration.compact
     }
 
-    public var progress: CGFloat {
+    var progress: CGFloat {
         return CGFloat((height - configuration.compact) / configuration.climbRange)
     }
 }
