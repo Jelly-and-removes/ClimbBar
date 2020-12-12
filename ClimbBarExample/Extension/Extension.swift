@@ -19,3 +19,28 @@ extension UINavigationController {
         navigationBar.tintColor = navigationBar.tintColor.withAlphaComponent(alpha)
     }
 }
+
+extension UIApplication {
+    static var statusBarFrame: CGRect {
+        UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?
+            .windows
+            .filter({$0.isKeyWindow}).first?
+            .windowScene?
+            .statusBarManager?
+            .statusBarFrame ?? .zero
+    }
+    
+    static var statusBarHeight: CGFloat {
+        statusBarFrame.size.height
+    }
+}
+
+extension UINavigationController {
+    var barHeight: CGFloat {
+        navigationBar.frame.size.height
+    }
+}
