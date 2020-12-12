@@ -11,20 +11,20 @@ import UIKit
 import WebKit
 
 final class WebViewController: UIViewController {
+    // MARK: Member variable
+
     @IBOutlet var webView: WKWebView!
     private var climbBar: ClimbBar!
 
     // MARK: lifecycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = "WebViewController"
+    override func loadView() {
+        super.loadView()
 
         webView.load(URLRequest(url: URL(string: "https://github.com")!))
         webView.scrollView.scrollsToTop = false
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
+        let statusBarHeight = UIApplication.statusBarHeight
+        let toHeaderBottom = statusBarHeight + (navigationController?.barHeight ?? 0)
         let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
 
         climbBar = ClimbBar(configurations: conf,
@@ -39,9 +39,5 @@ final class WebViewController: UIViewController {
                                         height: 44)
             self.navigationController?.navigationBar.frame = navigtionFrame
         }
-    }
-
-    deinit {
-        print(#function)
     }
 }

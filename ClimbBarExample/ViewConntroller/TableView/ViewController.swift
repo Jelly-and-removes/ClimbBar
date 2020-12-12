@@ -10,20 +10,18 @@ import ClimbBar
 import UIKit
 
 final class ViewController: UIViewController {
+    // MARK: Member variable
+
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var headerView: UIView!
     private var climbBar: ClimbBar!
 
     // MARK: lifecycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         title = "ViewController"
-
-        tableView.dataSource = self
-        tableView.scrollsToTop = false
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
+        let statusBarHeight = UIApplication.statusBarHeight
+        let toHeaderBottom = statusBarHeight + (navigationController?.barHeight ?? 0)
         let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
 
         climbBar = ClimbBar(configurations: conf,
@@ -39,17 +37,13 @@ final class ViewController: UIViewController {
             self.navigationController?.navigationBar.frame = navigtionFrame
         }
     }
-
-    deinit {
-        print(#function)
-    }
 }
 
 // MARK: UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 50
+        50
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

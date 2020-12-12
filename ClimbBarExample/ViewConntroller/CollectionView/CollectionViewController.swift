@@ -10,20 +10,27 @@ import ClimbBar
 import UIKit
 
 final class CollectionViewController: UIViewController {
+    // MARK: Member variable
+
     @IBOutlet var collectionView: UICollectionView!
     private var climbBar: ClimbBar!
 
+    var thirdOfTheScreen: CGFloat {
+        view.frame.size.width / 3 - 2
+    }
+
+    var cellSize: CGSize {
+        CGSize(width: thirdOfTheScreen, height: thirdOfTheScreen)
+    }
+
     // MARK: lifecycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+    override func loadView() {
+        super.loadView()
         collectionView.scrollsToTop = false
-        title = "CollectionViewController"
 
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
+        let statusBarHeight = UIApplication.statusBarHeight
+        let toHeaderBottom = statusBarHeight + (navigationController?.barHeight ?? 0.0)
 
         let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
 
@@ -40,17 +47,13 @@ final class CollectionViewController: UIViewController {
             self.navigationController?.navigationBar.frame = navigtionFrame
         }
     }
-
-    deinit {
-        print(#function)
-    }
 }
 
 // MARK: UICollectionViewDataSource
 
 extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 100
+        100
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -73,7 +76,6 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
                         layout _: UICollectionViewLayout,
                         sizeForItemAt _: IndexPath) -> CGSize
     {
-        let cellSize: CGFloat = view.frame.size.width / 3 - 2
-        return CGSize(width: cellSize, height: cellSize)
+        cellSize
     }
 }
