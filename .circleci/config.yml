@@ -5,12 +5,16 @@ version: 2.1
 
 jobs:
   build:
-
     macos:
       xcode: 11.0.0 # Specify the Xcode version to use
 
     steps:
-      - checkout
-      - run: brew update
-      - run: bundle install
-      - run: bundle exec fastlane test
+      - run:
+          name: The First Step
+          command: |
+            brew update
+            bundle install
+      - run:
+          name: Code Has Arrived
+          command: |
+            bundle exec fastlane test
