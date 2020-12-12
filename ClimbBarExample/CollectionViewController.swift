@@ -19,7 +19,7 @@ final class CollectionViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        collectionView.scrollsToTop = false
         title = "CollectionViewController"
 
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
