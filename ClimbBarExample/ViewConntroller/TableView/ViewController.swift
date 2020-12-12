@@ -11,6 +11,7 @@ import UIKit
 
 final class ViewController: UIViewController {
     // MARK: Member variable
+
     @IBOutlet var tableView: UITableView!
     private var climbBar: ClimbBar!
 

@@ -11,8 +11,8 @@ import UIKit
 import WebKit
 
 final class WebViewController: UIViewController {
-
     // MARK: Member variable
+
     @IBOutlet var webView: WKWebView!
     private var climbBar: ClimbBar!
 

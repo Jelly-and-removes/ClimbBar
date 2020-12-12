@@ -9,12 +9,13 @@
 import UIKit
 
 final class RootViewController: UIViewController {
-    
     // MARK: Member variable
+
     @IBOutlet var tableView: UITableView!
     private let items: [String] = ["TableView", "WebView", "CollectionView"]
-    
+
     // MARK: Lifecycle
+
     override func loadView() {
         super.loadView()
         title = "RootViewController"

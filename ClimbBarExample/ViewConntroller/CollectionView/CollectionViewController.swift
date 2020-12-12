@@ -10,8 +10,8 @@ import ClimbBar
 import UIKit
 
 final class CollectionViewController: UIViewController {
-
     // MARK: Member variable
+
     @IBOutlet var collectionView: UICollectionView!
     private var climbBar: ClimbBar!
 
