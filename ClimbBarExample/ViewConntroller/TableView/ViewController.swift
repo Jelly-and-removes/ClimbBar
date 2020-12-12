@@ -37,10 +37,6 @@ final class ViewController: UIViewController {
             self.navigationController?.navigationBar.frame = navigtionFrame
         }
     }
-
-    deinit {
-        print(#function)
-    }
 }
 
 // MARK: UITableViewDataSource
