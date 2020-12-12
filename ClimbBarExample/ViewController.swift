@@ -21,7 +21,7 @@ final class ViewController: UIViewController {
         title = "ViewController"
 
         tableView.dataSource = self
-
+        tableView.scrollsToTop = false
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
         let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
