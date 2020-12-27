@@ -51,14 +51,14 @@ public class ClimbBar: NSObject {
         climbBarObservable = ClimbBarObservable(key: #keyPath(UIScrollView.contentOffset), object: self.scrollable)
 
         super.init()
-
+        self.scrollable.delegate = self
         climbBarObservable.observer = { [weak self] _ in
             guard let self = self else { return }
             let state = State(conf: self.configurations,
                               begin: self.beginDrag,
                               offset: self.scrollable.contentOffset,
                               origin: self.scrollable.frame.origin)
-            guard self.isReachable == false else { return }
+            guard !self.isReachable else { return }
             self.observer?(state)
             self.previousState = state.originY
         }
@@ -79,11 +79,6 @@ public class ClimbBar: NSObject {
         if scrollable.contentInsetAdjustmentBehavior == .never {
             setScrollable(contentInset: defaultInset, contentOffset: defaultContentOffset)
         }
-    }
-
-    public func adjustScrollable() {
-        setScrollable(contentInset: defaultInset,
-                      contentOffset: defaultContentOffset)
     }
 
     private func setScrollable(contentInset: UIEdgeInsets,
@@ -115,4 +110,9 @@ public class ClimbBar: NSObject {
     }
 }
 
+extension ClimbBar: UIScrollViewDelegate {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        isReachable = false
+    }
+}
 // swiftlint:enable all
