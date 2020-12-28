@@ -67,3 +67,13 @@ override func viewDidLoad() {
         }
     }
 ```
+
+ If you are using UIScrollViewDelegate, set isReachable to true in func scrollViewDidEndDecelerating(_ scrollView: UIScrollView).
+
+```Swift
+extension ClimbBar: UIScrollViewDelegate {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        climbBar.isReachable = false
+    }
+}
+ ```
