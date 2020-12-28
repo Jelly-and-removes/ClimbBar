@@ -18,7 +18,7 @@ public class ClimbBar: NSObject {
     var scrollable: UIScrollView!
     var beginDrag: CGFloat
     var previousState: CGFloat!
-    var isReachable: Bool = false
+    public var isReachable: Bool = false
     var climbBarObservable: ClimbBarObservable
 
     public struct State {
