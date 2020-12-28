@@ -15,9 +15,9 @@ As you can see in the example apps, the scroll bar hides the navigation bar.
 
 I was affected by AirBar.
 
-|travis| status |
+|github page bild| status |
 |:----|:------|
-|result|[![](https://travis-ci.org/keisukeYamagishi/ClimbBar.svg?branch=master)](https://travis-ci.org/keisukeYamagishi/ClimbBar)|
+|result|![build](https://github.com/keisukeYamagishi/ClimbBar/workflows/build/badge.svg)|
 
 ## Gif
 
