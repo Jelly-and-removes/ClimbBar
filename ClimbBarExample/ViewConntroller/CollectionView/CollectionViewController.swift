@@ -27,7 +27,6 @@ final class CollectionViewController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        collectionView.scrollsToTop = false
 
         let statusBarHeight = UIApplication.statusBarHeight
         let toHeaderBottom = statusBarHeight + (navigationController?.barHeight ?? 0.0)
