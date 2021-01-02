@@ -18,7 +18,7 @@ public class ClimbBar: NSObject {
     var scrollable: UIScrollView!
     var beginDrag: CGFloat
     var previousState: CGFloat!
-    public var isReachable: Bool = false
+    var isReachable: Bool = false
     var climbBarObservable: ClimbBarObservable
 
     public struct State {
@@ -51,7 +51,7 @@ public class ClimbBar: NSObject {
         climbBarObservable = ClimbBarObservable(key: #keyPath(UIScrollView.contentOffset), object: self.scrollable)
 
         super.init()
-        self.scrollable.delegate = self
+
         climbBarObservable.observer = { [weak self] _ in
             guard let self = self else { return }
             let state = State(conf: self.configurations,
@@ -99,7 +99,8 @@ public class ClimbBar: NSObject {
              * If the start and stop times are less than or equal to zero,
              * the movement is stopped.
              */
-            if beginDrag < 0 {
+            if beginDrag < 0,
+               scrollable.contentOffset.y < configurations.lower {
                 isReachable = true
             }
         case .possible, .changed, .cancelled, .failed:
@@ -107,12 +108,6 @@ public class ClimbBar: NSObject {
         @unknown default:
             break
         }
-    }
-}
-
-extension ClimbBar: UIScrollViewDelegate {
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        isReachable = false
     }
 }
 // swiftlint:enable all
