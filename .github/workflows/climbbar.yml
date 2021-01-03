@@ -8,10 +8,7 @@ jobs:
     strategy:
       matrix:
         destination: [
-          'macOS', 
-          'iOS Simulator,name=iPhone 8', 
-          'tvOS Simulator,name=Apple TV', 
-          'watchOS Simulator,name=Apple Watch Series 5 - 40mm'
+          'iOS Simulator,name=iPhone 8'
         ]
         swift-version: [5.0, 4.2, 4.0]
     steps:

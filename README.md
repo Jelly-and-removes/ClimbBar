@@ -45,20 +45,19 @@ $ git clone https://github.com/keisukeYamagishi/ClimbBar.git
 ## Sample code
 
 ```Swift
-override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let toHeaderBottom = statusBarHeight + (navigationController?.navigationBar.frame.size.height)!
-        let conf = Configuration(range: statusBarHeight...toHeaderBottom)
+override func loadView() {
+        super.loadView()
+        title = "ViewController"
+        let statusBarHeight = UIApplication.statusBarHeight
+        let toHeaderBottom = statusBarHeight + (navigationController?.barHeight ?? 0)
+        let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
 
         climbBar = ClimbBar(configurations: conf,
                             scrollable: tableView)
 
         climbBar.observer = { [weak self] state in
             guard let self = self else { return }
-            self.navigationController?.setAlpha(alpha: CGFloat(state.alpha))
+            self.navigationController?.setAlpha(alpha: CGFloat(state.progress))
             let navigtionFrame = CGRect(x: 0,
                                         y: state.originY,
                                         width: self.view.frame.size.width,
@@ -66,4 +65,25 @@ override func viewDidLoad() {
             self.navigationController?.navigationBar.frame = navigtionFrame
         }
     }
+```
+
+```Swift
+extension UIApplication {
+    static var statusBarFrame: CGRect {
+        UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .map { $0 as? UIWindowScene }
+            .compactMap { $0 }
+            .first?
+            .windows
+            .filter { $0.isKeyWindow }.first?
+            .windowScene?
+            .statusBarManager?
+            .statusBarFrame ?? .zero
+    }
+
+    static var statusBarHeight: CGFloat {
+        statusBarFrame.size.height
+    }
+}
 ```

@@ -12,7 +12,7 @@ final class RootViewController: UIViewController {
     // MARK: Member variable
 
     @IBOutlet var tableView: UITableView!
-    private let items: [String] = ["TableView", "WebView", "CollectionView"]
+    private let items: [String] = ["TableView", "WebView", "CollectionView", "LongHeader"]
 
     // MARK: Lifecycle
 
@@ -40,6 +40,10 @@ extension RootViewController: UITableViewDelegate {
             let storyboard = UIStoryboard(name: "CollectionView", bundle: nil)
             let secondViewController = storyboard.instantiateInitialViewController()
             navigationController?.pushViewController(secondViewController!, animated: true)
+        } else if indexPath.row == 3 {
+            let storyboard = UIStoryboard(name: "LongHeader", bundle: nil)
+            let longHeaderVc = storyboard.instantiateInitialViewController()
+            navigationController?.pushViewController(longHeaderVc!, animated: true)
         }
     }
 }

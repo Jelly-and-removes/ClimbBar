@@ -15,14 +15,18 @@ public extension ClimbBar.State {
     }
 
     var height: CGFloat {
-        return (originY + configuration.climbRange) - origin.y
+        (originY + configuration.climbRange) - origin.y
     }
 
     var distance: CGFloat {
-        return height - configuration.compact
+        height - configuration.compact
     }
 
     var progress: CGFloat {
-        return CGFloat((height - configuration.compact) / configuration.climbRange)
+        CGFloat((height - configuration.compact) / configuration.climbRange)
+    }
+
+    var reversProgress: CGFloat {
+        (progress - 1) * -1
     }
 }

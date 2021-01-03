@@ -18,6 +18,8 @@
 		90208F822584D72600F01CA3 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90208F812584D72600F01CA3 /* WebView.storyboard */; };
 		90208F852584D72E00F01CA3 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90208F842584D72E00F01CA3 /* Root.storyboard */; };
 		90208F892584D83800F01CA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90208F882584D83800F01CA3 /* SceneDelegate.swift */; };
+		9077745125A0BFCE0034692A /* LongHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077744F25A0BFCE0034692A /* LongHeaderViewController.swift */; };
+		9077745225A0BFCE0034692A /* LongHeader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9077745025A0BFCE0034692A /* LongHeader.storyboard */; };
 		C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8DD229170EC008EB5DF /* Configuration.swift */; };
 		C72CD8E9229192F8008EB5DF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* Extension.swift */; };
 		C7325D1524C47B49003D13DB /* ClimbBarObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */; };
@@ -67,6 +69,8 @@
 		90208F812584D72600F01CA3 /* WebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
 		90208F842584D72E00F01CA3 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		90208F882584D83800F01CA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9077744F25A0BFCE0034692A /* LongHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongHeaderViewController.swift; sourceTree = "<group>"; };
+		9077745025A0BFCE0034692A /* LongHeader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LongHeader.storyboard; sourceTree = "<group>"; };
 		C72CD8DD229170EC008EB5DF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		C72CD8E8229192F8008EB5DF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbBarObservable.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		90208F672584D6F900F01CA3 /* ViewConntroller */ = {
 			isa = PBXGroup;
 			children = (
+				9077744E25A0BFCE0034692A /* LongHeader */,
 				90208F682584D6F900F01CA3 /* TableView */,
 				90208F6A2584D6F900F01CA3 /* CollectionView */,
 				90208F6D2584D6F900F01CA3 /* WebView */,
@@ -156,6 +161,15 @@
 				90208F782584D70000F01CA3 /* Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9077744E25A0BFCE0034692A /* LongHeader */ = {
+			isa = PBXGroup;
+			children = (
+				9077744F25A0BFCE0034692A /* LongHeaderViewController.swift */,
+				9077745025A0BFCE0034692A /* LongHeader.storyboard */,
+			);
+			path = LongHeader;
 			sourceTree = "<group>";
 		};
 		C74EF9A12294ED0300706FDA /* Frameworks */ = {
@@ -312,6 +326,7 @@
 				90208F7C2584D71000F01CA3 /* TableView.storyboard in Resources */,
 				90208F852584D72E00F01CA3 /* Root.storyboard in Resources */,
 				90208F822584D72600F01CA3 /* WebView.storyboard in Resources */,
+				9077745225A0BFCE0034692A /* LongHeader.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9077745125A0BFCE0034692A /* LongHeaderViewController.swift in Sources */,
 				90208F732584D6F900F01CA3 /* CollectionViewController.swift in Sources */,
 				90208F712584D6F900F01CA3 /* ViewController.swift in Sources */,
 				90208F792584D70000F01CA3 /* Extension.swift in Sources */,
@@ -498,6 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3DW67HS9F;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = ClimbBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,6 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3DW67HS9F;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = ClimbBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
