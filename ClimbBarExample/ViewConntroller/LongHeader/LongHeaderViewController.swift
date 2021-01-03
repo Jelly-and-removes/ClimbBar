@@ -46,6 +46,11 @@ final class LongHeaderViewController: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+
     @IBAction func pushInBackButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
