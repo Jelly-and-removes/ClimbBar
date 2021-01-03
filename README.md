@@ -15,13 +15,13 @@ As you can see in the example apps, the scroll bar hides the navigation bar.
 
 I was affected by AirBar.
 
-|github page bild| status |
+|github page build| status |
 |:----|:------|
 |result|![build](https://github.com/keisukeYamagishi/ClimbBar/workflows/build/badge.svg)|
 
 ## Gif
 
-<img src="./doc/demo.mov.gif" width=40% height="40%">
+<img src="https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/demo.mov.gif" width=40% height="40%">
 
 ## Cocoapods
 
