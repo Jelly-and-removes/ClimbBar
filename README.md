@@ -3,7 +3,7 @@
 <img src="https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/climbBarlog.png" width="50%" height="50%">
 
 [![](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/keisukeYamagishi/Direction/blob/master/LICENSE)
-[![](https://img.shields.io/badge/twitter-brew__0__O-blue.svg)](https://twitter.com/brew_0_O)
+[![](https://img.shields.io/badge/HP-shichimitoucarashi-00acee)](https://shichimitoucarashi.com/)
 
 </p>
 
