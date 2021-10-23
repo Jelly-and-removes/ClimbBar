@@ -65,10 +65,10 @@ public class ClimbBar: NSObject {
 
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
 
-        configuration(conf: configurations)
+        setup(configurations)
     }
 
-    private func configuration(conf: Configuration) {
+    private func setup(_ conf: Configuration) {
         previousState = conf.compact
         defaultContentOffset = CGPoint(x: 0, y: -conf.normal)
         defaultInset = UIEdgeInsets(top: conf.normal,
@@ -100,7 +100,8 @@ public class ClimbBar: NSObject {
              * the movement is stopped.
              */
             if beginDrag < 0,
-               scrollable.contentOffset.y < configurations.lower {
+               scrollable.contentOffset.y < configurations.lower
+            {
                 isReachable = true
             }
         case .possible, .changed, .cancelled, .failed:
@@ -110,4 +111,5 @@ public class ClimbBar: NSObject {
         }
     }
 }
+
 // swiftlint:enable all
