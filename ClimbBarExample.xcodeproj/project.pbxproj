@@ -21,7 +21,7 @@
 		9077745125A0BFCE0034692A /* LongHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077744F25A0BFCE0034692A /* LongHeaderViewController.swift */; };
 		9077745225A0BFCE0034692A /* LongHeader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9077745025A0BFCE0034692A /* LongHeader.storyboard */; };
 		C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8DD229170EC008EB5DF /* Configuration.swift */; };
-		C72CD8E9229192F8008EB5DF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* Extension.swift */; };
+		C72CD8E9229192F8008EB5DF /* ClimbBar.State+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* ClimbBar.State+.swift */; };
 		C7325D1524C47B49003D13DB /* ClimbBarObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */; };
 		C74EF9A32294ED0400706FDA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EF9A22294ED0400706FDA /* WebKit.framework */; };
 		C79EBF9F2282A60100B2E0CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79EBF9E2282A60100B2E0CB /* AppDelegate.swift */; };
@@ -72,7 +72,7 @@
 		9077744F25A0BFCE0034692A /* LongHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongHeaderViewController.swift; sourceTree = "<group>"; };
 		9077745025A0BFCE0034692A /* LongHeader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LongHeader.storyboard; sourceTree = "<group>"; };
 		C72CD8DD229170EC008EB5DF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		C72CD8E8229192F8008EB5DF /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C72CD8E8229192F8008EB5DF /* ClimbBar.State+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClimbBar.State+.swift"; sourceTree = "<group>"; };
 		C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbBarObservable.swift; sourceTree = "<group>"; };
 		C74EF9A22294ED0400706FDA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C79EBF9B2282A60100B2E0CB /* ClimbBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +220,7 @@
 				C79EBFC22282A92A00B2E0CB /* ClimbBar.swift */,
 				C72CD8DD229170EC008EB5DF /* Configuration.swift */,
 				C79EBFB82282A63700B2E0CB /* Info.plist */,
-				C72CD8E8229192F8008EB5DF /* Extension.swift */,
+				C72CD8E8229192F8008EB5DF /* ClimbBar.State+.swift */,
 				C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */,
 			);
 			path = ClimbBar;
@@ -362,7 +362,7 @@
 			files = (
 				C79EBFC32282A92A00B2E0CB /* ClimbBar.swift in Sources */,
 				C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */,
-				C72CD8E9229192F8008EB5DF /* Extension.swift in Sources */,
+				C72CD8E9229192F8008EB5DF /* ClimbBar.State+.swift in Sources */,
 				C7325D1524C47B49003D13DB /* ClimbBarObservable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
