@@ -1,6 +1,6 @@
 # ClimbBar
 <p align="center">
-<img src="https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/climbBarlog.png" width="50%" height="50%">
+<img src="https://github.com/Jelly-and-removes/ClimbBar/blob/main/doc/climbBarlog.png" width="50%" height="50%">
 
 [![](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/keisukeYamagishi/Direction/blob/master/LICENSE)
 [![](https://img.shields.io/badge/HP-shichimitoucarashi-00acee)](https://shichimitoucarashi.com/)
@@ -11,9 +11,8 @@
 
 iOS library that can extend a View that has scrollable elements such as UITableView and UIWebView.
 
-As you can see in the example apps, the scroll bar hides the navigation bar.
-
-I was affected by AirBar.
+When a scrollable View is swiped, the swiped value will be returned from 'emit'.
+So, the　swipe the scrollable view, the ’navigationBar’ rises accordingly.
 
 |github page build| status |
 |:----|:------|
@@ -21,7 +20,7 @@ I was affected by AirBar.
 
 ## Gif
 
-<img src="https://github.com/keisukeYamagishi/ClimbBar/blob/master/doc/demo.mov.gif" width=40% height="40%">
+<img src="https://github.com/Jelly-and-removes/ClimbBar/blob/main/doc/demo.mov.gif" width=40% height="40%">
 
 ## Cocoapods
 
