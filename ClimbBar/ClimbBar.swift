@@ -88,6 +88,10 @@ public class ClimbBar: NSObject {
         scrollable.contentOffset = contentOffset
     }
 
+    public func emit(_ handler: @escaping (State) -> Void) {
+        self.observer = handler
+    }
+
     @objc private func handleGesture(_ gesture: UIGestureRecognizer) {
         switch gesture.state {
         case .began:
