@@ -55,7 +55,7 @@ override func loadView() {
         climbBar = ClimbBar(configurations: conf,
                             scrollable: tableView)
 
-        climbBar.observer = { [weak self] state in
+        climbBar.emit { [weak self] state in
             guard let self = self else { return }
             self.navigationController?.setAlpha(alpha: CGFloat(state.progress))
             let navigtionFrame = CGRect(x: 0,
