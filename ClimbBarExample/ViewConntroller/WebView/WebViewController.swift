@@ -29,7 +29,7 @@ final class WebViewController: UIViewController {
         climbBar = ClimbBar(configurations: conf,
                             scrollable: webView.scrollView)
 
-        climbBar.observer = { [weak self] state in
+        climbBar.emit { [weak self] state in
             guard let self = self else { return }
             self.navigationController?.setAlpha(alpha: state.progress)
             let navigtionFrame = CGRect(x: 0,
