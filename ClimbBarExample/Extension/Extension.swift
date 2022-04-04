@@ -20,6 +20,18 @@ extension UINavigationController {
     }
 }
 
+extension UINavigationBar {
+    func setAlpha(_ alpha: CGFloat) {
+        let blackAlpha = UIColor.black.withAlphaComponent(alpha)
+        if titleTextAttributes == nil {
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackAlpha]
+        } else {
+            titleTextAttributes?[NSAttributedString.Key.foregroundColor] = blackAlpha
+        }
+        tintColor = tintColor.withAlphaComponent(alpha)
+    }
+}
+
 extension UIApplication {
     static var statusBarFrame: CGRect {
         UIApplication.shared.connectedScenes

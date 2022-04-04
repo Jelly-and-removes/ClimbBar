@@ -12,7 +12,9 @@ import UIKit
 final class CollectionViewController: UIViewController {
     // MARK: Member variable
 
+    @IBOutlet var header: UIView!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var navigationBar: UINavigationBar!
     private var climbBar: ClimbBar!
 
     var thirdOfTheScreen: CGFloat {
@@ -28,23 +30,38 @@ final class CollectionViewController: UIViewController {
     override func loadView() {
         super.loadView()
 
+        navigationBar.frame = CGRect(x: 0,
+                                     y: 0,
+                                     width: view.bounds.width,
+                                     height: 44)
+        collectionView.contentInsetAdjustmentBehavior = .never
+        navigationController?.setNavigationBarHidden(true, animated: false)
         let statusBarHeight = UIApplication.statusBarHeight
+
+        header.frame = CGRect(x: 0,
+                              y: 0,
+                              width: view.bounds.width,
+                              height: statusBarHeight)
+
         let toHeaderBottom = statusBarHeight + (navigationController?.barHeight ?? 0.0)
+        let configuration = Configuration(range: statusBarHeight ... toHeaderBottom)
 
-        let conf = Configuration(range: statusBarHeight ... toHeaderBottom)
-
-        climbBar = ClimbBar(configurations: conf,
+        climbBar = ClimbBar(configurations: configuration,
                             scrollable: collectionView)
 
         climbBar.emit { [weak self] state in
             guard let self = self else { return }
-            self.navigationController?.setAlpha(alpha: state.progress)
-            let navigtionFrame = CGRect(x: 0,
-                                        y: state.originY,
-                                        width: self.view.frame.size.width,
-                                        height: 44)
-            self.navigationController?.navigationBar.frame = navigtionFrame
+            self.navigationBar.setAlpha(CGFloat(state.progress))
+            let navigationFrame = CGRect(x: 0,
+                                         y: state.originY,
+                                         width: self.view.frame.size.width,
+                                         height: 44)
+            self.navigationBar.frame = navigationFrame
         }
+    }
+
+    @IBAction func pushBarButtonItem(_: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
 }
 

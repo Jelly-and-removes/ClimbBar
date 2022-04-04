@@ -17,7 +17,7 @@ final class LongHeaderViewController: UIViewController {
     @IBOutlet var headerView: UIView!
     @IBOutlet var headerTitle: UILabel!
     @IBOutlet var backButton: UIButton!
-    
+
     // MARK: lifecycle
 
     override func loadView() {
@@ -39,7 +39,7 @@ final class LongHeaderViewController: UIViewController {
                 return
             }
             let navigtionFrame = CGRect(x: 0,
-                                        y: state.originY ,
+                                        y: state.originY,
                                         width: self.view.frame.size.width,
                                         height: toHeaderBottom)
             self.headerView.frame = navigtionFrame
@@ -51,22 +51,22 @@ final class LongHeaderViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
-    @IBAction func pushInBackButton(_ sender: Any) {
+    @IBAction func pushInBackButton(_: Any) {
         navigationController?.popViewController(animated: true)
     }
 
-    private func confgigure(){
+    private func confgigure() {
         configureTitle()
         configureHeader()
     }
 
-    private func configureTitle(){
+    private func configureTitle() {
         let width = CGFloat(view.frame.size.width - 30)
-        let originY: CGFloat = 200 - (81)
-        self.headerTitle.frame = CGRect(x: 5.0, y: originY, width: width, height: 300.0)
+        let originY: CGFloat = 200 - 81
+        headerTitle.frame = CGRect(x: 5.0, y: originY, width: width, height: 300.0)
     }
 
-    private func configureHeader(){
+    private func configureHeader() {
         headerView.frame = CGRect(origin: .zero, size: CGSize(width: view.frame.size.width, height: 300))
     }
 }

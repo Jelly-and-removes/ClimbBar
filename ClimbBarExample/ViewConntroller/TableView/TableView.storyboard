@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c63-km-bSg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c63-km-bSg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +22,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="8ne-0I-Edn">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ne-0I-Edn" id="Q3l-yo-YsL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -33,25 +35,64 @@
                                     <outlet property="delegate" destination="c63-km-bSg" id="jSe-eh-DyE"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAj-ao-vds">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.98039215800000001" green="0.97647058959999999" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfX-v9-Z3d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bgO-D6-2hr"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="TableViewController" id="GuM-mc-Yig">
+                                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" style="plain" id="LdJ-8A-ETo">
+                                            <connections>
+                                                <action selector="pushBarButtonItem:" destination="c63-km-bSg" id="ci4-uT-lu8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XnR-c4-lYo"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="sAj-ao-vds" firstAttribute="leading" secondItem="zgy-CE-zKB" secondAttribute="leading" id="3Vc-nE-ROq"/>
                             <constraint firstItem="OVB-ui-tlo" firstAttribute="leading" secondItem="XnR-c4-lYo" secondAttribute="leading" id="7ZL-BW-fl9"/>
+                            <constraint firstAttribute="trailing" secondItem="sAj-ao-vds" secondAttribute="trailing" id="HkB-4Q-o6j"/>
                             <constraint firstItem="OVB-ui-tlo" firstAttribute="trailing" secondItem="XnR-c4-lYo" secondAttribute="trailing" id="MlZ-px-m5J"/>
                             <constraint firstItem="OVB-ui-tlo" firstAttribute="bottom" secondItem="XnR-c4-lYo" secondAttribute="bottom" id="N6A-Gu-Pa5"/>
+                            <constraint firstItem="xfX-v9-Z3d" firstAttribute="top" secondItem="XnR-c4-lYo" secondAttribute="top" id="YLf-jQ-3GM"/>
                             <constraint firstItem="OVB-ui-tlo" firstAttribute="bottom" secondItem="XnR-c4-lYo" secondAttribute="bottom" id="cNt-gE-3ug"/>
+                            <constraint firstItem="xfX-v9-Z3d" firstAttribute="trailing" secondItem="XnR-c4-lYo" secondAttribute="trailing" id="ccZ-Ob-mTH"/>
+                            <constraint firstItem="sAj-ao-vds" firstAttribute="top" secondItem="zgy-CE-zKB" secondAttribute="top" id="fXv-KS-c5h"/>
+                            <constraint firstItem="xfX-v9-Z3d" firstAttribute="top" secondItem="sAj-ao-vds" secondAttribute="bottom" id="oDG-dn-ijV"/>
+                            <constraint firstItem="xfX-v9-Z3d" firstAttribute="leading" secondItem="XnR-c4-lYo" secondAttribute="leading" id="rmK-gO-WTH"/>
                             <constraint firstItem="OVB-ui-tlo" firstAttribute="top" secondItem="zgy-CE-zKB" secondAttribute="top" id="x2m-ks-bGF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ljS-VX-UIM"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="navigationBar" destination="xfX-v9-Z3d" id="PI0-mm-Upo"/>
                         <outlet property="tableView" destination="OVB-ui-tlo" id="g2y-0y-PlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTF-2w-uFb" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Sfp-GQ-zOt">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="6nW-oS-4g8"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="3105" y="-284"/>
+            <point key="canvasLocation" x="3104.347826086957" y="-284.59821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
