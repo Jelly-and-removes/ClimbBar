@@ -11,8 +11,12 @@
 
 iOS library that can extend a View that has scrollable elements such as UITableView and UIWebView.
 
-When a scrollable View is swiped, the swiped value will be returned from 'emit'.
-So, the　swipe the scrollable view, the ’navigationBar’ rises accordingly.
+As you can see in the example apps, the scroll bar hides the navigation bar.
+
+## Tips
+
+When running on Xcode13.2 or later and iOS 15.2 or later, UINavigationController's UINavigatioBar may not work properly.
+so you may want to use UINavigationBar or UIView and etc,
 
 |github page build| status |
 |:----|:------|
