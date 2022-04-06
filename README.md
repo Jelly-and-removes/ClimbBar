@@ -13,12 +13,10 @@ iOS library that can extend a View that has scrollable elements such as UITableV
 
 As you can see in the example apps, the scroll bar hides the navigation bar.
 
-## ⚠️Warning⚠️
+## Tips
 
-When running on Xcode13.2 or later, UINavigationController's UINavigatioBar may not work properly.
-
-## ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-
+When running on Xcode13.2 or later and iOS 15.2 or later, UINavigationController's UINavigatioBar may not work properly.
+so you may want to use UINavigationBar or UIView and etc,
 
 |github page build| status |
 |:----|:------|
