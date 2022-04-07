@@ -60,12 +60,12 @@ override func loadView() {
 
         climbBar.emit { [weak self] state in
             guard let self = self else { return }
-            self.navigationController?.setAlpha(alpha: CGFloat(state.progress))
+            self.navigationBar.setAlpha(alpha: CGFloat(state.progress))
             let navigtionFrame = CGRect(x: 0,
                                         y: state.originY,
                                         width: self.view.frame.size.width,
                                         height: 44)
-            self.navigationController?.navigationBar.frame = navigtionFrame
+            self.navigationBar.frame = navigtionFrame
         }
     }
 ```
