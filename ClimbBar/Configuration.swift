@@ -8,6 +8,9 @@
 
 import UIKit
 
+/*
+ * Class to set how much range of scrolled values should be returned
+ */
 public struct Configuration {
     var compact: CGFloat = 0
     var normal: CGFloat = 0
