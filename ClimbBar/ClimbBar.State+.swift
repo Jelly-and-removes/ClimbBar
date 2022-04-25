@@ -11,6 +11,13 @@ import Foundation
 public extension ClimbBar.State {
 
     /*
+     * scrollable object`s offset y
+     */
+    var offsetY: CGFloat {
+        offset.y
+    }
+
+    /*
      * originY of scrollable View
      * Pass this value to scrollable origin.y
      * return CGFloat
