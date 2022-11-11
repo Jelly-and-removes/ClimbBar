@@ -39,8 +39,8 @@ public class ClimbBar: NSObject {
         }
     }
 
-    public init(configurations: Configuration!,
-                scrollable: UIScrollView!)
+    public init(configurations: Configuration,
+                scrollable: UIScrollView)
     {
         self.configurations = configurations
         self.scrollable = scrollable
