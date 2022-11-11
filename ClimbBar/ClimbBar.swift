@@ -12,14 +12,14 @@ import UIKit.UIGestureRecognizer
 public class ClimbBar: NSObject {
     public var observer: ((State) -> Void)?
 
-    var defaultContentOffset: CGPoint
-    var defaultInset: UIEdgeInsets
-    var configurations: Configuration!
-    var scrollable: UIScrollView!
-    var beginDrag: CGFloat
-    var previousState: CGFloat!
+    var _defaultContentOffset: CGPoint
+    var _defaultInset: UIEdgeInsets
+    var _configurations: Configuration!
+    var _scrollable: UIScrollView!
+    var _beginDrag: CGFloat
+    var _previousState: CGFloat!
     public var isReachable: Bool = false
-    var climbBarObservable: ClimbBarObservable
+    var _climbBarObservable: ClimbBarObservable
 
     public struct State {
         var configuration: Configuration
@@ -42,25 +42,25 @@ public class ClimbBar: NSObject {
     public init(configurations: Configuration,
                 scrollable: UIScrollView)
     {
-        self.configurations = configurations
-        self.scrollable = scrollable
-        beginDrag = 0
-        defaultContentOffset = .zero
-        defaultInset = .zero
+        self._configurations = configurations
+        self._scrollable = scrollable
+        _beginDrag = 0
+        _defaultContentOffset = .zero
+        _defaultInset = .zero
 
-        climbBarObservable = ClimbBarObservable(key: #keyPath(UIScrollView.contentOffset), object: self.scrollable)
+        _climbBarObservable = ClimbBarObservable(key: #keyPath(UIScrollView.contentOffset), object: self._scrollable)
 
         super.init()
 
-        climbBarObservable.observer = { [weak self] _ in
+        _climbBarObservable.observer = { [weak self] _ in
             guard let self = self else { return }
-            let state = State(conf: self.configurations,
-                              begin: self.beginDrag,
-                              offset: self.scrollable.contentOffset,
-                              origin: self.scrollable.frame.origin)
+            let state = State(conf: self._configurations,
+                              begin: self._beginDrag,
+                              offset: self._scrollable.contentOffset,
+                              origin: self._scrollable.frame.origin)
             guard !self.isReachable else { return }
             self.observer?(state)
-            self.previousState = state.originY
+            self._previousState = state.originY
         }
 
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
@@ -69,23 +69,23 @@ public class ClimbBar: NSObject {
     }
 
     private func setup(_ conf: Configuration) {
-        previousState = conf.compact
-        defaultContentOffset = CGPoint(x: 0, y: -conf.normal)
-        defaultInset = UIEdgeInsets(top: conf.normal,
-                                    left: scrollable.contentInset.left,
-                                    bottom: scrollable.contentInset.bottom,
-                                    right: scrollable.contentInset.right)
+        _previousState = conf.compact
+        _defaultContentOffset = CGPoint(x: 0, y: -conf.normal)
+        _defaultInset = UIEdgeInsets(top: conf.normal,
+                                    left: _scrollable.contentInset.left,
+                                    bottom: _scrollable.contentInset.bottom,
+                                    right: _scrollable.contentInset.right)
 
-        if scrollable.contentInsetAdjustmentBehavior == .never {
-            setScrollable(contentInset: defaultInset, contentOffset: defaultContentOffset)
+        if _scrollable.contentInsetAdjustmentBehavior == .never {
+            setScrollable(contentInset: _defaultInset, contentOffset: _defaultContentOffset)
         }
     }
 
     private func setScrollable(contentInset: UIEdgeInsets,
                                contentOffset: CGPoint)
     {
-        scrollable.contentInset = contentInset
-        scrollable.contentOffset = contentOffset
+        _scrollable.contentInset = contentInset
+        _scrollable.contentOffset = contentOffset
     }
 
     public func emit(_ handler: @escaping (State) -> Void) {
@@ -96,15 +96,15 @@ public class ClimbBar: NSObject {
         switch gesture.state {
         case .began:
             isReachable = false
-            beginDrag = scrollable.contentOffset.y
-            configurations.currentStatus = previousState
+            _beginDrag = _scrollable.contentOffset.y
+            _configurations.currentStatus = _previousState
         case .ended:
             /*
              * If the start and stop times are less than or equal to zero,
              * the movement is stopped.
              */
-            if beginDrag < 0,
-               scrollable.contentOffset.y < configurations.lower
+            if _beginDrag < 0,
+               _scrollable.contentOffset.y < _configurations.lower
             {
                 isReachable = true
             }
