@@ -11,6 +11,7 @@ import UIKit.UIGestureRecognizer
 // swiftlint:disable all
 public class ClimbBar: NSObject {
     public var observer: ((State) -> Void)?
+    public var isReachable: Bool = false
 
     var _defaultContentOffset: CGPoint
     var _defaultInset: UIEdgeInsets
@@ -18,7 +19,6 @@ public class ClimbBar: NSObject {
     var _scrollable: UIScrollView!
     var _beginDrag: CGFloat
     var _previousState: CGFloat!
-    public var isReachable: Bool = false
     var _climbBarObservable: ClimbBarObservable
 
     public struct State {
