@@ -15,7 +15,7 @@ public class ClimbBar: NSObject {
 
     var _defaultContentOffset: CGPoint
     var _defaultInset: UIEdgeInsets
-    var _configurations: Configuration!
+    var _configuration: Configuration!
     var _scrollable: UIScrollView!
     var _beginDrag: CGFloat
     var _previousState: CGFloat!
@@ -42,7 +42,7 @@ public class ClimbBar: NSObject {
     public init(configurations: Configuration,
                 scrollable: UIScrollView)
     {
-        self._configurations = configurations
+        self._configuration = configurations
         self._scrollable = scrollable
         _beginDrag = 0
         _defaultContentOffset = .zero
@@ -54,7 +54,7 @@ public class ClimbBar: NSObject {
 
         _climbBarObservable.observer = { [weak self] _ in
             guard let self = self else { return }
-            let state = State(conf: self._configurations,
+            let state = State(conf: self._configuration,
                               begin: self._beginDrag,
                               offset: self._scrollable.contentOffset,
                               origin: self._scrollable.frame.origin)
@@ -97,14 +97,14 @@ public class ClimbBar: NSObject {
         case .began:
             isReachable = false
             _beginDrag = _scrollable.contentOffset.y
-            _configurations.currentStatus = _previousState
+            _configuration.currentStatus = _previousState
         case .ended:
             /*
              * If the start and stop times are less than or equal to zero,
              * the movement is stopped.
              */
             if _beginDrag < 0,
-               _scrollable.contentOffset.y < _configurations.lower
+               _scrollable.contentOffset.y < _configuration.lower
             {
                 isReachable = true
             }
