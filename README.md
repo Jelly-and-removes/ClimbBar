@@ -1,10 +1,6 @@
 # ClimbBar
 <p align="center">
 <img src="https://github.com/Jelly-and-removes/ClimbBar/blob/main/doc/climbBarlog.png" width="50%" height="50%">
-
-[![](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/keisukeYamagishi/Direction/blob/master/LICENSE)
-[![](https://img.shields.io/badge/HP-shichimitoucarashi-00acee)](https://shichimitoucarashi.com/)
-
 </p>
 
 # Overview
