@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,17 +20,18 @@
 		90208F892584D83800F01CA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90208F882584D83800F01CA3 /* SceneDelegate.swift */; };
 		9077745125A0BFCE0034692A /* LongHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077744F25A0BFCE0034692A /* LongHeaderViewController.swift */; };
 		9077745225A0BFCE0034692A /* LongHeader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9077745025A0BFCE0034692A /* LongHeader.storyboard */; };
-		C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8DD229170EC008EB5DF /* Configuration.swift */; };
-		C72CD8E9229192F8008EB5DF /* ClimbBar.State+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CD8E8229192F8008EB5DF /* ClimbBar.State+.swift */; };
-		C7325D1524C47B49003D13DB /* ClimbBarObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */; };
+		907E60C92A9774C9001F6A11 /* ClimbBarObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E60C22A9774C9001F6A11 /* ClimbBarObservable.swift */; };
+		907E60CA2A9774C9001F6A11 /* ClimbBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E60C32A9774C9001F6A11 /* ClimbBar.swift */; };
+		907E60CB2A9774C9001F6A11 /* ClimbBar.State+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E60C42A9774C9001F6A11 /* ClimbBar.State+.swift */; };
+		907E60CC2A9774C9001F6A11 /* ClimbBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 907E60C52A9774C9001F6A11 /* ClimbBar.h */; };
+		907E60CD2A9774C9001F6A11 /* ClimbState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E60C62A9774C9001F6A11 /* ClimbState.swift */; };
+		907E60CF2A9774C9001F6A11 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E60C82A9774C9001F6A11 /* Configuration.swift */; };
 		C74EF9A32294ED0400706FDA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EF9A22294ED0400706FDA /* WebKit.framework */; };
 		C79EBF9F2282A60100B2E0CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79EBF9E2282A60100B2E0CB /* AppDelegate.swift */; };
 		C79EBFA62282A60200B2E0CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79EBFA52282A60200B2E0CB /* Assets.xcassets */; };
 		C79EBFA92282A60200B2E0CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79EBFA72282A60200B2E0CB /* LaunchScreen.storyboard */; };
-		C79EBFB92282A63700B2E0CB /* ClimbBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C79EBFB72282A63700B2E0CB /* ClimbBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EBFBC2282A63700B2E0CB /* ClimbBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EBFB52282A63700B2E0CB /* ClimbBar.framework */; };
 		C79EBFBD2282A63700B2E0CB /* ClimbBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C79EBFB52282A63700B2E0CB /* ClimbBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C79EBFC32282A92A00B2E0CB /* ClimbBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79EBFC22282A92A00B2E0CB /* ClimbBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +72,13 @@
 		90208F882584D83800F01CA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9077744F25A0BFCE0034692A /* LongHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongHeaderViewController.swift; sourceTree = "<group>"; };
 		9077745025A0BFCE0034692A /* LongHeader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LongHeader.storyboard; sourceTree = "<group>"; };
-		C72CD8DD229170EC008EB5DF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		C72CD8E8229192F8008EB5DF /* ClimbBar.State+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClimbBar.State+.swift"; sourceTree = "<group>"; };
-		C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbBarObservable.swift; sourceTree = "<group>"; };
+		907E60C22A9774C9001F6A11 /* ClimbBarObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbBarObservable.swift; sourceTree = "<group>"; };
+		907E60C32A9774C9001F6A11 /* ClimbBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbBar.swift; sourceTree = "<group>"; };
+		907E60C42A9774C9001F6A11 /* ClimbBar.State+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClimbBar.State+.swift"; sourceTree = "<group>"; };
+		907E60C52A9774C9001F6A11 /* ClimbBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbBar.h; sourceTree = "<group>"; };
+		907E60C62A9774C9001F6A11 /* ClimbState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbState.swift; sourceTree = "<group>"; };
+		907E60C72A9774C9001F6A11 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		907E60C82A9774C9001F6A11 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		C74EF9A22294ED0400706FDA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C79EBF9B2282A60100B2E0CB /* ClimbBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79EBF9E2282A60100B2E0CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,9 +86,6 @@
 		C79EBFA82282A60200B2E0CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79EBFAA2282A60200B2E0CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C79EBFB52282A63700B2E0CB /* ClimbBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ClimbBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C79EBFB72282A63700B2E0CB /* ClimbBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClimbBar.h; sourceTree = "<group>"; };
-		C79EBFB82282A63700B2E0CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C79EBFC22282A92A00B2E0CB /* ClimbBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,28 @@
 			path = LongHeader;
 			sourceTree = "<group>";
 		};
+		907E60C02A9774C9001F6A11 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				907E60C12A9774C9001F6A11 /* ClimbBar */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		907E60C12A9774C9001F6A11 /* ClimbBar */ = {
+			isa = PBXGroup;
+			children = (
+				907E60C22A9774C9001F6A11 /* ClimbBarObservable.swift */,
+				907E60C32A9774C9001F6A11 /* ClimbBar.swift */,
+				907E60C42A9774C9001F6A11 /* ClimbBar.State+.swift */,
+				907E60C52A9774C9001F6A11 /* ClimbBar.h */,
+				907E60C62A9774C9001F6A11 /* ClimbState.swift */,
+				907E60C72A9774C9001F6A11 /* Info.plist */,
+				907E60C82A9774C9001F6A11 /* Configuration.swift */,
+			);
+			path = ClimbBar;
+			sourceTree = "<group>";
+		};
 		C74EF9A12294ED0300706FDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +207,7 @@
 		C79EBF922282A60100B2E0CB = {
 			isa = PBXGroup;
 			children = (
-				C79EBFB62282A63700B2E0CB /* ClimbBar */,
+				907E60C02A9774C9001F6A11 /* Sources */,
 				C79EBF9D2282A60100B2E0CB /* ClimbBarExample */,
 				C79EBF9C2282A60100B2E0CB /* Products */,
 				C74EF9A12294ED0300706FDA /* Frameworks */,
@@ -213,19 +237,6 @@
 			path = ClimbBarExample;
 			sourceTree = "<group>";
 		};
-		C79EBFB62282A63700B2E0CB /* ClimbBar */ = {
-			isa = PBXGroup;
-			children = (
-				C79EBFB72282A63700B2E0CB /* ClimbBar.h */,
-				C79EBFC22282A92A00B2E0CB /* ClimbBar.swift */,
-				C72CD8DD229170EC008EB5DF /* Configuration.swift */,
-				C79EBFB82282A63700B2E0CB /* Info.plist */,
-				C72CD8E8229192F8008EB5DF /* ClimbBar.State+.swift */,
-				C7325D1424C47B49003D13DB /* ClimbBarObservable.swift */,
-			);
-			path = ClimbBar;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -233,7 +244,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79EBFB92282A63700B2E0CB /* ClimbBar.h in Headers */,
+				907E60CC2A9774C9001F6A11 /* ClimbBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +294,9 @@
 		C79EBF932282A60100B2E0CB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = Shichimitoucarashi;
 				TargetAttributes = {
 					C79EBF9A2282A60100B2E0CB = {
@@ -360,10 +372,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79EBFC32282A92A00B2E0CB /* ClimbBar.swift in Sources */,
-				C72CD8DE229170EC008EB5DF /* Configuration.swift in Sources */,
-				C72CD8E9229192F8008EB5DF /* ClimbBar.State+.swift in Sources */,
-				C7325D1524C47B49003D13DB /* ClimbBarObservable.swift in Sources */,
+				907E60CB2A9774C9001F6A11 /* ClimbBar.State+.swift in Sources */,
+				907E60CF2A9774C9001F6A11 /* Configuration.swift in Sources */,
+				907E60C92A9774C9001F6A11 /* ClimbBarObservable.swift in Sources */,
+				907E60CA2A9774C9001F6A11 /* ClimbBar.swift in Sources */,
+				907E60CD2A9774C9001F6A11 /* ClimbState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ClimbBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -497,6 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ClimbBarExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -563,9 +578,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				INFOPLIST_FILE = ClimbBar/Info.plist;
+				INFOPLIST_FILE = Sources/ClimbBar/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -574,6 +590,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.7.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shichimitoucarashi.climbbar.ClimbBar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -598,9 +616,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				INFOPLIST_FILE = ClimbBar/Info.plist;
+				INFOPLIST_FILE = Sources/ClimbBar/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,6 +628,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.7.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shichimitoucarashi.climbbar.ClimbBar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

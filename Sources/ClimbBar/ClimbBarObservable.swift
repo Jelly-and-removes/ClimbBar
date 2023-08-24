@@ -7,6 +7,7 @@
 //
 
 import CoreGraphics.CGGeometry
+import Foundation
 
 // swiftlint:disable all
 internal class ClimbBarObservable: NSObject {
