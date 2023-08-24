@@ -25,3 +25,5 @@ jobs:
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
         run: make debug
+      - name: pod lib lint
+        run: make lib-lint
