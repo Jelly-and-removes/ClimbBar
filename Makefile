@@ -13,3 +13,6 @@ build-app:
 	-project ClimbBarExample.xcodeproj \
 	-scheme ClimbBarExample \
 	build CODE_SIGNING_ALLOWED=NO
+
+lib-lint:
+	pod lib lint ClimbBar.podspec 
