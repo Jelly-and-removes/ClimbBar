@@ -44,9 +44,9 @@ public class ClimbBar: NSObject {
     {
         self.configuration = configurations
         self.scrollable = scrollable
-        previousState = self.configuration.compact
-        defaultContentOffset = CGPoint(x: 0, y: -self.configuration.normal)
-        defaultInset = UIEdgeInsets(top: self.configuration.normal,
+        previousState = configuration.compact
+        defaultContentOffset = CGPoint(x: 0, y: -configuration.normal)
+        defaultInset = UIEdgeInsets(top: configuration.normal,
                                     left: scrollable.contentInset.left,
                                     bottom: scrollable.contentInset.bottom,
                                     right: scrollable.contentInset.right)
@@ -71,7 +71,8 @@ public class ClimbBar: NSObject {
     private func setup(_ conf: Configuration) {
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
         if scrollable.contentInsetAdjustmentBehavior == .never {
-            setScrollable(contentInset: defaultInset, contentOffset: defaultContentOffset)
+            setScrollable(contentInset: defaultInset,
+                          contentOffset: defaultContentOffset)
         }
     }
 
@@ -83,7 +84,7 @@ public class ClimbBar: NSObject {
     }
 
     public func emit(_ handler: @escaping (State) -> Void) {
-        self.observer = handler
+        observer = handler
     }
 
     @objc private func handleGesture(_ gesture: UIGestureRecognizer) {
