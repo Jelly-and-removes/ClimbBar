@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ClimbBar"
-  s.version      = "1.7.1"
+  s.version      = "1.7.2"
   s.summary      = "You can move another object synchronously with the scroll value."
   s.description  = <<-DESC
                     iOS library that can extend a View that has scrollable elements such as UITableView and UIWebView.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "keisuke" => "jam330157@gmail.com" }
   s.source       = { :git => "https://github.com/keisukeYamagishi/ClimbBar.git", :tag => "#{s.version}" }
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '14.0'
   s.swift_version = '5.0'
   s.source_files  = "Source", "Sources/ClimbBar/*.swift"
 end
