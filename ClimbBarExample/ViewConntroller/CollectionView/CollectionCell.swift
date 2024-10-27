@@ -9,5 +9,6 @@
 import UIKit
 
 final class CollectionCell: UICollectionViewCell {
+    @IBOutlet var countLabel: UILabel!
     @IBOutlet var icon: UIImageView!
 }

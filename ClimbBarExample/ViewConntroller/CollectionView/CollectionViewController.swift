@@ -16,6 +16,7 @@ final class CollectionViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var navigationBar: UINavigationBar!
     private var climbBar: ClimbBar!
+    private var selectedCount: NumberOfSelectedItems = NumberOfSelectedItems()
 
     var thirdOfTheScreen: CGFloat {
         view.frame.size.width / 3 - 2
@@ -80,6 +81,17 @@ extension CollectionViewController: UICollectionViewDataSource {
         else {
             return UICollectionViewCell()
         }
+
+        cell.countLabel.clipsToBounds = true
+        cell.countLabel.layer.cornerRadius = 10
+
+        if selectedCount.isSelectedItem(indexPath: indexPath) {
+            cell.countLabel.isHidden = false
+            cell.countLabel.text = selectedCount.getItem(indexPath)
+        } else {
+            cell.countLabel.isHidden = true
+        }
+
         cell.icon.image = #imageLiteral(resourceName: "smokin")
         return cell
     }
@@ -93,5 +105,14 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt _: IndexPath) -> CGSize
     {
         cellSize
+    }
+}
+
+// MARK: UICollectionViewDelegate
+
+extension CollectionViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCount.didSelectedItem(indexPath: indexPath)
+        collectionView.reloadData()
     }
 }

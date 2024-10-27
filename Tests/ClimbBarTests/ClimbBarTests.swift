@@ -1,5 +1,5 @@
-import XCTest
 @testable import ClimbBar
+import XCTest
 
 final class ClimbBarTests: XCTestCase {
     func testExample() throws {

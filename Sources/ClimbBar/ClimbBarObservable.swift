@@ -44,4 +44,5 @@ internal class ClimbBarObservable: NSObject {
         observer?(newValue)
     }
 }
+
 // swiftlint:disable all
