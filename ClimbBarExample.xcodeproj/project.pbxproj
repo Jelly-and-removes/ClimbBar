@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		907E60CC2A9774C9001F6A11 /* ClimbBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 907E60C52A9774C9001F6A11 /* ClimbBar.h */; };
 		907E60CD2A9774C9001F6A11 /* ClimbState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E60C62A9774C9001F6A11 /* ClimbState.swift */; };
 		907E60CF2A9774C9001F6A11 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E60C82A9774C9001F6A11 /* Configuration.swift */; };
+		90D1A4892C242E50000BE8C3 /* NumberOfSelectedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D1A4882C242E50000BE8C3 /* NumberOfSelectedItems.swift */; };
 		C74EF9A32294ED0400706FDA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EF9A22294ED0400706FDA /* WebKit.framework */; };
 		C79EBF9F2282A60100B2E0CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79EBF9E2282A60100B2E0CB /* AppDelegate.swift */; };
 		C79EBFA62282A60200B2E0CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79EBFA52282A60200B2E0CB /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		907E60C62A9774C9001F6A11 /* ClimbState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbState.swift; sourceTree = "<group>"; };
 		907E60C72A9774C9001F6A11 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		907E60C82A9774C9001F6A11 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		90D1A4882C242E50000BE8C3 /* NumberOfSelectedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfSelectedItems.swift; sourceTree = "<group>"; };
 		C74EF9A22294ED0400706FDA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C79EBF9B2282A60100B2E0CB /* ClimbBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79EBF9E2282A60100B2E0CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				90208F6B2584D6F900F01CA3 /* CollectionCell.swift */,
 				90208F6C2584D6F900F01CA3 /* CollectionViewController.swift */,
 				90208F7E2584D71E00F01CA3 /* CollectionView.storyboard */,
+				90D1A4882C242E50000BE8C3 /* NumberOfSelectedItems.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				C79EBF9F2282A60100B2E0CB /* AppDelegate.swift in Sources */,
 				90208F892584D83800F01CA3 /* SceneDelegate.swift in Sources */,
 				90208F742584D6F900F01CA3 /* WebViewController.swift in Sources */,
+				90D1A4892C242E50000BE8C3 /* NumberOfSelectedItems.swift in Sources */,
 				90208F722584D6F900F01CA3 /* CollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +459,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = ClimbBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -512,7 +516,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = ClimbBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -531,7 +535,7 @@
 				DEVELOPMENT_TEAM = D3DW67HS9F;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = ClimbBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,7 +557,7 @@
 				DEVELOPMENT_TEAM = D3DW67HS9F;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = ClimbBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,7 +587,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Sources/ClimbBar/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,7 +625,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = Sources/ClimbBar/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

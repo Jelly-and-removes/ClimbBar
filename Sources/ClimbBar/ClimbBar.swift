@@ -42,7 +42,7 @@ public class ClimbBar: NSObject {
     public init(configurations: Configuration,
                 scrollable: UIScrollView)
     {
-        self.configuration = configurations
+        configuration = configurations
         self.scrollable = scrollable
         previousState = configuration.compact
         defaultContentOffset = CGPoint(x: 0, y: -configuration.normal)
@@ -68,7 +68,7 @@ public class ClimbBar: NSObject {
         setup(configurations)
     }
 
-    private func setup(_ conf: Configuration) {
+    private func setup(_: Configuration) {
         scrollable.panGestureRecognizer.addTarget(self, action: #selector(handleGesture(_:)))
         if scrollable.contentInsetAdjustmentBehavior == .never {
             setScrollable(contentInset: defaultInset,
@@ -110,4 +110,5 @@ public class ClimbBar: NSObject {
         }
     }
 }
+
 // swiftlint:enable all

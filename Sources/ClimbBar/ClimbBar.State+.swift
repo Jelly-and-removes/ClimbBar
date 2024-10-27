@@ -9,7 +9,6 @@
 import Foundation
 
 public extension ClimbBar.State {
-
     /*
      * scrollable object`s offset y
      */
